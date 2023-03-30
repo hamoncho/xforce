@@ -1,0 +1,64 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 9 mar 2023, 17:45:50
+    Author     : hamoncho
+*/
+
+.label {
+    -fx-font-size: 16;
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-text-fill: white;
+    -fx-opacity: 1;
+}
+
+#nav{
+    /*-fx-background-color:  #1E88E5;*/
+
+    -fx-background-radius: 10;
+       
+    
+}
+#nav:hover{
+
+}
+#container{
+    -fx-background-color:  #1E88E5;
+    -fx-background-radius: 10;
+}
+#footNav{
+    -fx-background-color:  #D7DBDD;
+    -fx-background-radius: 10;
+}
+
+
+#hyperlinkUserName{
+    -fx-font-size: 16;
+    -fx-font-family: "Segoe UI Semibold";
+    
+}
+
+#logOut{
+    -fx-background-color: #F44336;
+    -fx-background-radius: 5;
+}
+
+#logOut:hover{
+    -fx-background-color:#FF6666;
+}
+#logOut:pressed{
+    -fx-background-color:#FF5078;
+}
+
+.itemDashboard{
+    -fx-background-radius: 5;
+}
+
+.itemDashboard:hover{
+    -fx-background-color:#03A9F4;
+}
+.itemDashboard:pressed{
+    -fx-background-color:#81D4FA;
+}

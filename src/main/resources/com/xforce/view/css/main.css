@@ -1,0 +1,69 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.background{
+    -fx-background-color: #FFFFFF;
+}
+.label {
+    -fx-font-size: 11pt;
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-text-fill: black;
+    -fx-opacity: 0.6;
+}
+
+.label-bright {
+    -fx-font-size: 11pt;
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-text-fill: black;
+    -fx-opacity: 1;
+}
+
+.label-header {
+    -fx-font-size: 32pt;
+    -fx-font-family: "Segoe UI Light";
+    -fx-text-fill: black;
+    -fx-opacity: 1;
+}
+
+.text-field {
+    -fx-font-size: 14pt;
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-background-color: #E3F2FDAA;
+    -fx-border-color: #03A9F45A;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    /*-fx-background-insets: 0 -1 -1 -1, 0 0 0 0, 0 -1 3 -1;*/
+}
+
+
+
+.text-field:focused{
+    /*-fx-focus-color: #00E6E6;*/
+    -fx-background-color: #E3F2FD3A;
+    -fx-highlight-fill:  grey ;
+}
+.text-field-disable {
+    -fx-font-size: 14pt;
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-background-color: #D3D3D3;
+    -fx-background-insets: 0 -1 -1 -1, 0 0 0 0, 0 -1 3 -1;
+}
+
+.button {
+    -fx-background-radius: 10;
+    -fx-font-weight: bold;
+    -fx-background-color: #29B6F6;
+    -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    -fx-font-size: 12pt;
+    -fx-text-fill: white;
+
+}
+
+.button:hover {
+    -fx-background-color: #03A9F4;
+}
+
+.button:pressed, .button:default:hover:pressed {
+    -fx-background-color: #81D4FA;
+}
