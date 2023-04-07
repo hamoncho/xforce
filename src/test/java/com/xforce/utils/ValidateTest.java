@@ -46,7 +46,7 @@ public class ValidateTest {
     
     @Test
     public void password(){
-        assertTrue(Validate.isPassword("ÑññññññññAa@123"));
+        assertTrue(Validate.isPassword("Ññññññ/jjAa@123"));
     }
     
     @Test
@@ -54,4 +54,8 @@ public class ValidateTest {
        assertTrue(Validate.isPassword("AaÑndreg@123"));
     }
     
+    @Test
+    public void password_null(){
+       assertFalse(Validate.isPassword(null));
+    }
 }

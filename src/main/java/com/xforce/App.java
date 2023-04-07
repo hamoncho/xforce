@@ -16,7 +16,6 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        IntStream.range(0, 10).reduce(0, Integer::sum);
         ViewManager.go(Views.LOGIN);
     }
 

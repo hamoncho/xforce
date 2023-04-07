@@ -12,8 +12,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.scene.control.Alert;
 
 /**
@@ -43,6 +41,7 @@ public class MySQL implements DataBase {
         PreparedStatement ps;
         ResultSet rs;
 
+        
         String query = "INSERT INTO `admn_gym`.`usuarios` (`username`, `email`, `telefono`, `contrasenna`, `tipo_Usuario`) VALUES (?, ?, ?, ?, ?);";
 
         try {
