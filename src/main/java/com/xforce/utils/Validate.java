@@ -20,7 +20,7 @@ public class Validate {
     }
 
     /**
-     * verify that parameter {@code name} is a name validate.
+     * verify that {@code name} is a name validate.
      *
      * valid if parameter {@code name} meets the following characteristics.
      * <ul>
@@ -33,6 +33,9 @@ public class Validate {
      *
      */
     public static boolean isName(String name) {
+        if(name == null){
+            return false;
+        }
         return name.matches("[A-Z][a-zA-Z]*");
     }
 
@@ -41,6 +44,7 @@ public class Validate {
     }
 
     /**
+     * verify that {@code email} is a E-mail validate.
      * valid if the parameter {@code email} meets the following characteristics.
      * <ul>
      * <li>Contains 8 characters.</li>
@@ -52,10 +56,14 @@ public class Validate {
      * return {@code false}
      */
     public static boolean isEmail(String email) {
+        if(email == null){
+            return false;
+        }
         return email.matches("^[\\w-+]+(\\.[\\w-]{1,62}){0,126}@[\\w-]{1,63}(\\.[\\w-]{1,62})+/[\\w-]+$");
     }
 
     /**
+     * verify that {@code pone} is a number phone validate.
      * Valid if the parameter {@code phone} meets the following characteristics.
      * <ul>
      * <li>Contains 8 characters.</li>
@@ -67,10 +75,14 @@ public class Validate {
      * {@code false}
      */
     public static boolean isPhone(String phone) {
+        if(phone==null){
+            return false;
+        }
         return phone.matches("[1-9]\\d{8}");
     }
 
     /**
+     * verify that {@code password} is a password validate.
      * 
      * Valid if the parameter {@code password} meets the following
      * characteristics.
@@ -80,7 +92,7 @@ public class Validate {
      * <li>Contains at least one digit.</li>
      * <li>Contains at least one uppercase alphabet.</li>
      * <li>Contains at least one lowercase alphabet. </li>
-     * <li>Contains at least one special character including !@#$%&*()-+=^.</li>
+     * <li>Contains at least one special character including !@#$%&*()-+=^</li>
      * <li>Does not contain any blank spaces.</li>
      * </ul>
      *
@@ -123,7 +135,7 @@ public class Validate {
         return password.matches("^(?=.*[0-9])" //Contains at least one digit.
                 + "(?=.*[a-z])" //Contains at least one uppercase alphabet.
                 + "(?=.*[A-Z])" //Contains at least one uppercase alphabet.
-                + "(?=.*[@#$%^&+=])" //Contains at least one !@#$%&*()-+=^
+                + "(?=.*[!@#$%&*()-+=^])" //Contains at least one !@#$%&*()-+=^
                 + "(?=\\S+$).{8,20}$");//Contains at least 8 and a maximum of 20 characters.
     }
 }

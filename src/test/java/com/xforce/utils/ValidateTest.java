@@ -46,7 +46,15 @@ public class ValidateTest {
     
     @Test
     public void password(){
-        assertTrue(Validate.isPassword("Ññññññ/jjAa@123"));
+        //assertTrue(Validate.isPassword("Ya#Wm739"));
+        assertTrue(Validate.isPassword("FVp2qH6S@"));
+        assertTrue(Validate.isPassword("4DNXJ+a9"));
+        assertTrue(Validate.isPassword("7b&HgN8h"));
+        assertTrue(Validate.isPassword("sQ%yfTa3"));
+        assertTrue(Validate.isPassword("?_YYXA@jqxQ*6_rnx8EE"));
+        assertTrue(Validate.isPassword("44E&%KuT93oI"));
+        assertTrue(Validate.isPassword("A8!hMi1O2"));
+
     }
     
     @Test
