@@ -54,6 +54,9 @@ public class ValidateTest {
         assertTrue(Validate.isPassword("?_YYXA@jqxQ*6_rnx8EE"));
         assertTrue(Validate.isPassword("44E&%KuT93oI"));
         assertTrue(Validate.isPassword("A8!hMi1O2"));
+        assertTrue(Validate.isPassword("f!&L7Ch0G8"));
+        assertTrue(Validate.isPassword("W03@%4PoMiA"));
+        assertTrue(Validate.isPassword("4!lI6uy53Hl$"));
 
     }
     
