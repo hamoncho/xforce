@@ -2,14 +2,10 @@
  * Empty Stylesheet file.
  */
 
-.mainFxmlClass {
-
-}
 .itemAreas{
     -fx-opacity: 0.9;
     -fx-background-image: url("../img/pesas.jpeg");
     -fx-background-size: stretch;
-    /*-fx-background-size: 900 506;*/
     -fx-background-position: center center;
     -fx-effect: dropshadow(three-pass-box, black, 10,0.03, 5, 5);
     -fx-border-radius: 10;
