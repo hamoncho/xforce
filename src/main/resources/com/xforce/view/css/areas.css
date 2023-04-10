@@ -8,7 +8,7 @@
 .itemAreas{
     -fx-opacity: 0.9;
     -fx-background-image: url("../img/pesas.jpeg");
-    -fx-background-repeat: space;
+    -fx-background-size: stretch;
     /*-fx-background-size: 900 506;*/
     -fx-background-position: center center;
     -fx-effect: dropshadow(three-pass-box, black, 10,0.03, 5, 5);
@@ -16,7 +16,6 @@
     -fx-background-radius: 10;
 }
 .itemAreas:hover{
-    -fx-background-repeat: repeat;
     -fx-background-color:  #29B6F6;
     -fx-scale-x: 1.1;
     -fx-scale-y: 1.1;
