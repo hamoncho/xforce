@@ -38,7 +38,7 @@ public class MySQL implements DataBase {
     }
 
     @Override
-    public Optional<? extends User> logIn(User user) {
+    public Optional<? extends User> logIn(String password, String username) {
         Optional<User> al = Optional.of(new User());
         return al;
     }

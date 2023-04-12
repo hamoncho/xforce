@@ -13,5 +13,5 @@ import java.util.Optional;
  * @author Hamoncho
  */
 public interface DataBase {
-    public Optional<? extends User> logIn(User user);
+    public Optional<? extends User> logIn(String password, String username);
 }
