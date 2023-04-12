@@ -27,7 +27,6 @@ public class SignInController implements Initializable {
 
     @FXML
     private TextField textFieldName;
-    @FXML
     private TextField textFieldLastNames;
     @FXML
     private TextField textFieldPhone;
@@ -37,6 +36,8 @@ public class SignInController implements Initializable {
     private TextField textFieldUserName;
     @FXML
     private PasswordField passwordField;
+    @FXML
+    private PasswordField passwordFieldRepeat;
 
     /**
      * Initializes the controller class.
@@ -51,52 +52,48 @@ public class SignInController implements Initializable {
         String userName;
         String password;
         String email;
-        String name;
-        String lastNames;
         String phone;
 
         try {
             
             if(textFieldUserName.getText().isBlank()){
-                throw new Exception("is Blank ");
+                throw new IllegalArgumentException("is Blank");
             }
             if(passwordField.getText().isBlank()){
-                throw new Exception("is Blank ");
+                throw new IllegalArgumentException("is Blank");
             }
             if(textFieldEmail.getText().isBlank()){
-                throw new Exception("is Blank ");
+                throw new IllegalArgumentException("is Blank");
             }
             if(textFieldName.getText().isBlank()){
-                throw new Exception("is Blank ");
+                throw new IllegalArgumentException("is Blank");
             }
             if(textFieldLastNames.getText().isBlank()){
-                throw new Exception("is Blank ");
+                throw new IllegalArgumentException("is Blank");
             }
             if(textFieldPhone.getText().isBlank()){
-                throw new Exception("is Blank ");
+                throw new IllegalArgumentException("is Blank");
             }
             
             userName = textFieldUserName.getText();
             password = passwordField.getText();
             email = textFieldEmail.getText();
-            name = textFieldName.getText();
-            lastNames = textFieldLastNames.getText();
             phone = textFieldPhone.getText();
             
+           User user = new User();
            
-            User user = new User(
-                    0,
-                    userName,
-                    phone,
-                    password,
-                    email,
-                    name,
-                    lastNames,
-                    UserType.DEFAULT
-            );
+           user.setUsername(userName);
+           user.setContrasenna(password);
+           user.setEmail(email);
+           
             MySQL mysql = new MySQL();
             mysql.signIn(user);
 
+            Alert a = new Alert(Alert.AlertType.INFORMATION);
+            a.setTitle("Sign up");
+            a.setContentText("Usuario Agregado con exito : " + user.getUsername());
+            a.show();
+            
         } catch (Exception e) {
             Alert a = new Alert(Alert.AlertType.ERROR);
             a.setTitle("Error");

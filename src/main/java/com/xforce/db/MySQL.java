@@ -38,31 +38,7 @@ public class MySQL implements DataBase {
 
     @Override
     public UserType logIn(User user) {
-        PreparedStatement ps;
-        ResultSet rs;
-
         
-        String query = "INSERT INTO `admn_gym`.`usuarios` (`username`, `email`, `telefono`, `contrasenna`, `tipo_Usuario`) VALUES (?, ?, ?, ?, ?);";
-
-        try {
-            ps = getConnection().prepareStatement(query);
-
-            ps.setString(1, "hams");
-            ps.setString(2, "hams@gmail.com");
-            ps.setString(3, "4521353535");
-            ps.setString(4, "contra");
-            ps.setInt(5, 3);
-
-            rs = ps.executeQuery();
-
-//            if (rs.next()) {
-//                System.out.println(rs.getArray(2).toString());
-//            } else {
-//
-//            }
-        } catch (SQLException ex) {
-
-        }
         return null;
     }
 
@@ -71,40 +47,24 @@ public class MySQL implements DataBase {
         if(user == null){
             throw new  IllegalArgumentException();
         }
-        if(Validate.isPassword(user.password())){
-            throw  new IllegalArgumentException();
-        }
-        if(user.email().matches("[A-Z][a-zA-Z]*")){
-            throw  new IllegalArgumentException();
-        }
+        
         
         PreparedStatement ps;
         ResultSet rs;
 
-        String query = "INSERT INTO `admn_gym`.`usuarios` (`username`, `email`, `telefono`, `contrasenna`, `tipo_Usuario`) VALUES (?, ?, ?, ?, ?);";
+        String query = "INSERT INTO `xforce`.`usuarios` (`username`, `email`, `telefono`, `contrasenna`, `tipo_Usuario`) VALUES (?, ?, ?, ?, ?);";
 
         try {
             
             ps = getConnection().prepareStatement(query);
 
-            ps.setString(1, user.userName());
-            ps.setString(2, user.email());
-            ps.setString(3, user.phone());
-            ps.setString(4, user.password());
+            ps.setString(1, user.getUsername());
+            ps.setString(2, user.getEmail());
+            ps.setString(3, user.getTelefono());
+            ps.setString(4, user.getContrasenna());
             ps.setInt(5, 3);
 
             ps.execute();
-
-            Alert a = new Alert(Alert.AlertType.INFORMATION);
-            a.setTitle("Error");
-            a.setContentText("Usuario Agregado con exito : " + user.userName());
-            a.show();
-            
-//            if (rs.next()) {
-//                System.out.println(rs.getArray(2).toString());
-//            } else {
-//
-//            }
 
         } catch (SQLException ex) {
             ex.printStackTrace();
