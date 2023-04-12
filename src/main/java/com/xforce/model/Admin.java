@@ -8,29 +8,10 @@ package com.xforce.model;
  *
  * @author hamoncho
  */
-public class Admin {
+public class Admin extends User {
 
-    private int id_Usuario;
     private String nombre;
     private String apellido;
-
-    /**
-     * Return user id
-     *
-     * @return (@code id_Usuario)
-     */
-    public int getId_Usuario() {
-        return id_Usuario;
-    }
-
-    /**
-     * Set user id
-     *
-     * @param id_Usuario
-     */
-    public void setId_Usuario(int id_Usuario) {
-        this.id_Usuario = id_Usuario;
-    }
 
     /**
      * Return name
