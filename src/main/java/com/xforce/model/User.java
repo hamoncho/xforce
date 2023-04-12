@@ -16,7 +16,6 @@ public class User {
     private String telefono;
     private String contrasenna;
     private int tipo_Usuario;
-    private String lastNames;
 
     public int getId_Usuario() {
         return id_Usuario;
@@ -64,14 +63,6 @@ public class User {
 
     public void setTipo_Usuario(int tipo_Usuario) {
         this.tipo_Usuario = tipo_Usuario;
-    }
-
-    public String getLastNames() {
-        return lastNames;
-    }
-
-    public void setLastNames(String lastNames) {
-        this.lastNames = lastNames;
     }
 
 }
