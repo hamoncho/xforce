@@ -38,7 +38,7 @@ public class User {
     /**
      * Return username
      *
-     * @return
+     * @return (@code username)
      */
     public String getUsername() {
         return username;
@@ -56,7 +56,7 @@ public class User {
     /**
      * Return email
      *
-     * @return
+     * @return (@code email)
      */
     public String getEmail() {
         return email;
@@ -74,7 +74,7 @@ public class User {
     /**
      * Return phone
      *
-     * @return
+     * @return (@code telefono)
      */
     public String getTelefono() {
         return telefono;
@@ -92,7 +92,7 @@ public class User {
     /**
      * Return password
      *
-     * @return
+     * @return (@code contrasenna)
      */
     public String getContrasenna() {
         return contrasenna;
@@ -110,7 +110,7 @@ public class User {
     /**
      * Return user type
      *
-     * @return
+     * @return (@code tipo_Usuario)
      */
     public int getTipo_Usuario() {
         return tipo_Usuario;
