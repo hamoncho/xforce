@@ -6,11 +6,12 @@ package com.xforce.db;
 
 import com.xforce.model.User;
 import com.xforce.model.UserType;
+import java.util.Optional;
 
 /**
  *
  * @author Hamoncho
  */
 public interface DataBase {
-    public UserType logIn(User user);
+    public Optional<? extends User> logIn(User user);
 }

@@ -12,6 +12,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Optional;
 import javafx.scene.control.Alert;
 
 /**
@@ -37,9 +38,9 @@ public class MySQL implements DataBase {
     }
 
     @Override
-    public UserType logIn(User user) {
-        
-        return null;
+    public Optional<? extends User> logIn(User user) {
+        Optional<User> al = Optional.of(new User());
+        return al;
     }
 
     public void signIn(User user) {
