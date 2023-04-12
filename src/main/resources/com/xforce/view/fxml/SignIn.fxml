@@ -2,7 +2,6 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
@@ -15,7 +14,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" styleClass="background" stylesheets="@../css/main.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.xforce.controller.SignInController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" styleClass="background" stylesheets="@../css/main.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.xforce.controller.SignInController">
    <children>
       <BorderPane layoutX="152.0" layoutY="160.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
@@ -30,43 +29,6 @@
                                     <Insets right="10.0" />
                                  </FlowPane.margin></Label>
                               <TextField fx:id="textFieldName" />
-                           </children>
-                           <VBox.margin>
-                              <Insets top="10.0" />
-                           </VBox.margin>
-                        </FlowPane>
-                        <FlowPane alignment="CENTER_RIGHT" columnHalignment="CENTER" prefWrapLength="350.0">
-                           <children>
-                              <Label text="Last Name's">
-                                 <FlowPane.margin>
-                                    <Insets right="10.0" />
-                                 </FlowPane.margin></Label>
-                              <TextField fx:id="textFieldLastNames" />
-                           </children>
-                           <VBox.margin>
-                              <Insets top="10.0" />
-                           </VBox.margin>
-                        </FlowPane>
-                        <FlowPane alignment="CENTER_RIGHT" columnHalignment="CENTER" prefWrapLength="350.0">
-                           <children>
-                              <Label text="Phone">
-                                 <FlowPane.margin>
-                                    <Insets right="10.0" />
-                                 </FlowPane.margin>
-                              </Label>
-                              <TextField fx:id="textFieldPhone" />
-                           </children>
-                           <VBox.margin>
-                              <Insets top="10.0" />
-                           </VBox.margin>
-                        </FlowPane>
-                        <FlowPane alignment="TOP_RIGHT">
-                           <children>
-                              <Label text="Birthday">
-                                 <FlowPane.margin>
-                                    <Insets right="10.0" />
-                                 </FlowPane.margin></Label>
-                              <DatePicker prefHeight="41.0" prefWidth="240.0" />
                            </children>
                            <VBox.margin>
                               <Insets top="10.0" />
@@ -104,6 +66,32 @@
                                     <Insets right="10.0" />
                                  </FlowPane.margin></Label>
                               <PasswordField fx:id="passwordField" promptText="**********" />
+                           </children>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </FlowPane>
+                        <FlowPane alignment="CENTER_RIGHT" columnHalignment="CENTER" prefWrapLength="350.0">
+                           <children>
+                              <Label text="Please Repeat">
+                                 <FlowPane.margin>
+                                    <Insets right="10.0" />
+                                 </FlowPane.margin>
+                              </Label>
+                              <PasswordField fx:id="passwordFieldRepeat" promptText="**********" />
+                           </children>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </FlowPane>
+                        <FlowPane alignment="CENTER_RIGHT" columnHalignment="CENTER" prefWrapLength="350.0">
+                           <children>
+                              <Label text="Phone">
+                                 <FlowPane.margin>
+                                    <Insets right="10.0" />
+                                 </FlowPane.margin>
+                              </Label>
+                              <TextField fx:id="textFieldPhone" />
                            </children>
                            <VBox.margin>
                               <Insets top="10.0" />
