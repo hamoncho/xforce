@@ -17,50 +17,110 @@ public class User {
     private String contrasenna;
     private int tipo_Usuario;
 
+    /**
+     * Return user id
+     *
+     * @return (@code id_Usuario)
+     */
     public int getId_Usuario() {
         return id_Usuario;
     }
 
+    /**
+     * Set user id
+     *
+     * @param id_Usuario
+     */
     public void setId_Usuario(int id_Usuario) {
         this.id_Usuario = id_Usuario;
     }
 
+    /**
+     * Return username
+     *
+     * @return
+     */
     public String getUsername() {
         return username;
     }
 
+    /**
+     * Set username
+     *
+     * @param username
+     */
     public void setUsername(String username) {
         this.username = username;
     }
 
+    /**
+     * Return email
+     *
+     * @return
+     */
     public String getEmail() {
         return email;
     }
 
+    /**
+     * Set email
+     *
+     * @param email
+     */
     public void setEmail(String email) {
         this.email = email;
     }
 
+    /**
+     * Return phone
+     *
+     * @return
+     */
     public String getTelefono() {
         return telefono;
     }
 
+    /**
+     * Set phone
+     *
+     * @param telefono
+     */
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 
+    /**
+     * Return password
+     *
+     * @return
+     */
     public String getContrasenna() {
         return contrasenna;
     }
 
+    /**
+     * Set password
+     *
+     * @param contrasenna
+     */
     public void setContrasenna(String contrasenna) {
         this.contrasenna = contrasenna;
     }
 
+    /**
+     * Return user type
+     *
+     * @return
+     */
     public int getTipo_Usuario() {
         return tipo_Usuario;
     }
 
+    /**
+     * Set user type
+     *
+     * @param tipo_Usuario
+     */
     public void setTipo_Usuario(int tipo_Usuario) {
         this.tipo_Usuario = tipo_Usuario;
     }
