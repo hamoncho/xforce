@@ -46,7 +46,7 @@ public class MySQL implements DataBase {
     public void signIn(User user) {
         
         if(user == null){
-            throw new  IllegalArgumentException();
+            throw new NullPointerException("user is null");
         }
         
         
@@ -67,8 +67,8 @@ public class MySQL implements DataBase {
 
             ps.execute();
 
-        } catch (SQLException ex) {
-            ex.printStackTrace();
+        } catch (SQLException | NullPointerException ex) {
+            
         }
 
     }
