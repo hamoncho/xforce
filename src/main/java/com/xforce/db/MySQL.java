@@ -43,17 +43,17 @@ public class MySQL implements DataBase {
         return al;
     }
 
-    public void signIn(User user) {
+    public boolean signIn(User user) {
         
         if(user == null){
-            throw new NullPointerException("user is null");
+            return false;
         }
         
         
         PreparedStatement ps;
         ResultSet rs;
 
-        String query = "INSERT INTO `xforce`.`usuarios` (`username`, `email`, `telefono`, `contrasenna`, `tipo_Usuario`) VALUES (?, ?, ?, ?, ?);";
+        String query = "INSERT INTO xforce.usuario(username, email, telefono, contrasenna) VALUES(?, ?, ?, ?);";
 
         try {
             
@@ -63,13 +63,15 @@ public class MySQL implements DataBase {
             ps.setString(2, user.getEmail());
             ps.setString(3, user.getTelefono());
             ps.setString(4, user.getContrasenna());
-            ps.setInt(5, 3);
 
             ps.execute();
 
         } catch (SQLException | NullPointerException ex) {
-            
+            return false;
+        }catch(Exception ex){
+            return false;
         }
 
+        return true;
     }
 }

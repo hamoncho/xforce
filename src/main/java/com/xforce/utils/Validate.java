@@ -36,7 +36,7 @@ public class Validate {
         if(name == null){
             return false;
         }
-        return name.matches("[A-Z][a-zA-Z]*");
+        return name.matches("[a-zA-Z]*");
     }
 
     public static boolean isName(String name, int bound) {
@@ -59,7 +59,8 @@ public class Validate {
         if(email == null){
             return false;
         }
-        return email.matches("^[\\w-+]+(\\.[\\w-]{1,62}){0,126}@[\\w-]{1,63}(\\.[\\w-]{1,62})+/[\\w-]+$");
+        return email.matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+                        + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
     }
 
     /**

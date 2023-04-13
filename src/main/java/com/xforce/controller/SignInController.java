@@ -67,7 +67,7 @@ public class SignInController implements Initializable {
                 throw new IllegalArgumentException("not a valid number phone");
             }
             
-            if(!passwordField.equals(passwordFieldRepeat)){
+            if(!passwordField.getText().equals(passwordFieldRepeat.getText())){
                 throw new IllegalArgumentException("passwords are different");
             }
             
@@ -84,7 +84,9 @@ public class SignInController implements Initializable {
            user.setTelefono(phone);
            
             MySQL mysql = new MySQL();
-            mysql.signIn(user);
+           if( !mysql.signIn(user)){
+               throw new Exception("user not added");
+           }
 
             Alert a = new Alert(Alert.AlertType.INFORMATION);
             a.setTitle("Sign up");
@@ -93,7 +95,13 @@ public class SignInController implements Initializable {
             
         } catch (IllegalArgumentException e) {
             Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setTitle("Illegal Argument");
+            a.setContentText(e.getMessage());
+            a.show();
+        }catch(Exception ex){
+            Alert a = new Alert(Alert.AlertType.ERROR);
             a.setTitle("Error");
+            a.setContentText(ex.getMessage());
             a.show();
         }
 
