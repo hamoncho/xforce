@@ -7,6 +7,7 @@ package com.xforce.controller;
 import com.xforce.db.MySQL;
 import com.xforce.model.User;
 import com.xforce.model.UserType;
+import com.xforce.utils.Validate;
 import com.xforce.view.ViewManager;
 import com.xforce.view.Views;
 import java.net.URL;
@@ -25,9 +26,6 @@ import javafx.scene.control.TextField;
  */
 public class SignInController implements Initializable {
 
-    @FXML
-    private TextField textFieldName;
-    private TextField textFieldLastNames;
     @FXML
     private TextField textFieldPhone;
     @FXML
@@ -49,33 +47,28 @@ public class SignInController implements Initializable {
 
     @FXML
     private void OnActionCreateAccount(ActionEvent event) {
-        String userName;
-        String password;
-        String email;
-        String phone;
+        final String userName;
+        final String password;
+        final String email;
+        final String phone;
 
         try {
             
-            if(textFieldUserName.getText().isBlank()){
-                throw new IllegalArgumentException("is Blank");
+            if(!Validate.isName(textFieldUserName.getText())){
+                throw new IllegalArgumentException("not a valid name");
             }
-            if(passwordField.getText().isBlank()){
-                throw new IllegalArgumentException("is Blank");
+            if(!Validate.isPassword(passwordField.getText())){
+                throw new IllegalArgumentException("not a valid password");
             }
-            if(passwordFieldRepeat.getText().isBlank()){
-                throw new IllegalArgumentException("is Blank");
+            if(!Validate.isEmail(textFieldEmail.getText())){
+                throw new IllegalArgumentException("not a valid E-mail");
             }
-            if(textFieldEmail.getText().isBlank()){
-                throw new IllegalArgumentException("is Blank");
+            if(!Validate.isPhone(textFieldPhone.getText())){
+                throw new IllegalArgumentException("not a valid number phone");
             }
-            if(textFieldName.getText().isBlank()){
-                throw new IllegalArgumentException("is Blank");
-            }
-            if(textFieldLastNames.getText().isBlank()){
-                throw new IllegalArgumentException("is Blank");
-            }
-            if(textFieldPhone.getText().isBlank()){
-                throw new IllegalArgumentException("is Blank");
+            
+            if(!passwordField.equals(passwordFieldRepeat)){
+                throw new IllegalArgumentException("passwords are different");
             }
             
             userName = textFieldUserName.getText();
