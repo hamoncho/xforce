@@ -62,6 +62,9 @@ public class SignInController implements Initializable {
             if(passwordField.getText().isBlank()){
                 throw new IllegalArgumentException("is Blank");
             }
+            if(passwordFieldRepeat.getText().isBlank()){
+                throw new IllegalArgumentException("is Blank");
+            }
             if(textFieldEmail.getText().isBlank()){
                 throw new IllegalArgumentException("is Blank");
             }
@@ -85,6 +88,7 @@ public class SignInController implements Initializable {
            user.setUsername(userName);
            user.setContrasenna(password);
            user.setEmail(email);
+           user.setTelefono(phone);
            
             MySQL mysql = new MySQL();
             mysql.signIn(user);
@@ -94,7 +98,7 @@ public class SignInController implements Initializable {
             a.setContentText("Usuario Agregado con exito : " + user.getUsername());
             a.show();
             
-        } catch (Exception e) {
+        } catch (IllegalArgumentException e) {
             Alert a = new Alert(Alert.AlertType.ERROR);
             a.setTitle("Error");
             a.show();
