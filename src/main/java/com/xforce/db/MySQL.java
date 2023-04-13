@@ -4,6 +4,9 @@
  */
 package com.xforce.db;
 
+import com.xforce.model.Admin;
+import com.xforce.model.Cliente;
+import com.xforce.model.Instructor;
 import com.xforce.model.User;
 import com.xforce.model.UserType;
 import com.xforce.utils.Validate;
@@ -43,21 +46,47 @@ public class MySQL implements DataBase {
         return al;
     }
 
-    public boolean signIn(User user) {
-        
-        if(user == null){
-            return false;
+    @Override
+    public void signIn(User user) throws Exception, IllegalArgumentException {
+
+        if (user == null) {
+            throw new IllegalArgumentException("user is null");
         }
-        
-        
+
+        if (!Validate.isName(user.getUsername())) {
+            throw new IllegalArgumentException("not a valid name");
+        }
+
+        if (!Validate.isEmail(user.getEmail())) {
+            throw new IllegalArgumentException("not a valid E-mail");
+        }
+
+        if (!Validate.isPhone(user.getTelefono())) {
+            throw new IllegalArgumentException("not a valid number phone");
+        }
+
+        if (!Validate.isPassword(user.getContrasenna())) {
+            throw new IllegalArgumentException("not a valid password");
+        }
+
+        addUser(user);
+
+    }
+
+  
+
+    @Override
+    public void addUser(User user) throws Exception{
         PreparedStatement ps;
         ResultSet rs;
 
-        String query = "INSERT INTO xforce.usuario(username, email, telefono, contrasenna) VALUES(?, ?, ?, ?);";
+        var query = "INSERT INTO xforce.usuario"
+                + "(username, email, telefono, contrasenna) "
+                + "VALUES(?, ?, ?, ?);";
 
-        try {
-            
-            ps = getConnection().prepareStatement(query);
+        try (var con = getConnection()) {
+
+            ps = con.prepareStatement(query);
 
             ps.setString(1, user.getUsername());
             ps.setString(2, user.getEmail());
@@ -66,12 +95,81 @@ public class MySQL implements DataBase {
 
             ps.execute();
 
-        } catch (SQLException | NullPointerException ex) {
-            return false;
-        }catch(Exception ex){
-            return false;
-        }
+        }  catch (SQLException ex) {
+            throw  new Exception("SQLException: "+ ex.getMessage());
+        } finally {
 
-        return true;
+        }
+        
+    }
+
+    @Override
+    public boolean userNameExists(String userName) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public boolean emailExists(String email) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public Optional<Integer> getIdUsuario(String username, String password) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public boolean userExists(User user) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public boolean adminExists(Admin admin) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public boolean clienteExists(Cliente cliente) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public boolean instructorExists(Instructor instructor) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void becomeAdmin(User current, Admin target) throws Exception, IllegalArgumentException {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void becomeCliente(User current, Cliente target) throws Exception, IllegalArgumentException {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void becomeInstructor(User current, Instructor target) throws Exception, IllegalArgumentException {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void becomeUsuario(User user) throws Exception, IllegalArgumentException {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public Optional<? extends User> getUser(int id) throws Exception, IllegalArgumentException {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void deleteUser(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void updateUser(int id, User userUpdate) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

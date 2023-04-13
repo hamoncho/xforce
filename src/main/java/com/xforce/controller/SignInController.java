@@ -47,65 +47,44 @@ public class SignInController implements Initializable {
 
     @FXML
     private void OnActionCreateAccount(ActionEvent event) {
-        final String userName;
-        final String password;
-        final String email;
-        final String phone;
+        final var userName = textFieldUserName.getText();
+        final var password = passwordField.getText();
+        final var passwordRepeat = passwordFieldRepeat.getText();
+        final var email = textFieldEmail.getText();
+        final var phone = textFieldPhone.getText();
 
         try {
-            
-            if(!Validate.isName(textFieldUserName.getText())){
-                throw new IllegalArgumentException("not a valid name");
-            }
-            if(!Validate.isPassword(passwordField.getText())){
-                throw new IllegalArgumentException("not a valid password");
-            }
-            if(!Validate.isEmail(textFieldEmail.getText())){
-                throw new IllegalArgumentException("not a valid E-mail");
-            }
-            if(!Validate.isPhone(textFieldPhone.getText())){
-                throw new IllegalArgumentException("not a valid number phone");
-            }
-            
-            if(!passwordField.getText().equals(passwordFieldRepeat.getText())){
+            if (!password.equals(passwordRepeat)) {
                 throw new IllegalArgumentException("passwords are different");
             }
-            
-            userName = textFieldUserName.getText();
-            password = passwordField.getText();
-            email = textFieldEmail.getText();
-            phone = textFieldPhone.getText();
-            
-           User user = new User();
-           
-           user.setUsername(userName);
-           user.setContrasenna(password);
-           user.setEmail(email);
-           user.setTelefono(phone);
-           
+
+            User user = new User();
+
+            user.setUsername(userName);
+            user.setContrasenna(password);
+            user.setEmail(email);
+            user.setTelefono(phone);
+
             MySQL mysql = new MySQL();
-           if( !mysql.signIn(user)){
-               throw new Exception("user not added");
-           }
+            mysql.signIn(user);
 
             Alert a = new Alert(Alert.AlertType.INFORMATION);
             a.setTitle("Sign up");
-            a.setContentText("Usuario Agregado con exito : " + user.getUsername());
+            a.setContentText("Usuario Agregado con exito : " 
+                    + user.getUsername());
             a.show();
-            
+
         } catch (IllegalArgumentException e) {
             Alert a = new Alert(Alert.AlertType.ERROR);
             a.setTitle("Illegal Argument");
             a.setContentText(e.getMessage());
             a.show();
-        }catch(Exception ex){
+        } catch (Exception ex) {
             Alert a = new Alert(Alert.AlertType.ERROR);
             a.setTitle("Error");
             a.setContentText(ex.getMessage());
             a.show();
         }
-
-        //ViewManager.go(Views.LOGIN);
     }
 
 }
