@@ -4,9 +4,17 @@
  */
 package com.xforce.controller;
 
+import com.xforce.view.ViewManager;
+import com.xforce.view.Views;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.layout.AnchorPane;
 
 /**
  * FXML Controller class
@@ -15,6 +23,7 @@ import javafx.fxml.Initializable;
  */
 public class CardiovascularAreaController implements Initializable {
 
+
     /**
      * Initializes the controller class.
      */
@@ -22,5 +31,11 @@ public class CardiovascularAreaController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @FXML
+    private void onActionGoBack(ActionEvent event) {
+         CustomerDashboardController.setAreasView();
+         
+    }
     
 }
