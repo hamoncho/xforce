@@ -17,7 +17,7 @@ public class Instructor extends User {
     /**
      * Return name
      *
-     * @return (@code nombre)
+     * @return {@code nombre}
      */
     public String getNombre() {
         return nombre;
@@ -35,7 +35,7 @@ public class Instructor extends User {
     /**
      * Return last name
      *
-     * @return (@code apellido)
+     * @return {@code apellido}
      */
     public String getApellido() {
         return apellido;
@@ -53,7 +53,7 @@ public class Instructor extends User {
     /**
      * Return blood type
      *
-     * @return
+     * @return {@code tipo_sanguineo}
      */
     public String getTipo_sanguineo() {
         return tipo_sanguineo;

@@ -16,7 +16,7 @@ public class Admin extends User {
     /**
      * Return name
      *
-     * @return (@code nombre)
+     * @return {@code nombre}
      */
     public String getNombre() {
         return nombre;
@@ -34,7 +34,7 @@ public class Admin extends User {
     /**
      * Return last name
      *
-     * @return (@code apellido)
+     * @return {@code apellido}
      */
     public String getApellido() {
         return apellido;
