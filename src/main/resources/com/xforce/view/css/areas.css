@@ -13,7 +13,7 @@
     -fx-background-position: center center;
 }
 
-#HBoxFreeWeightsArea{
+#VBoxFreeWeightsArea{
     -fx-background-image: url("../img/Free-weights-area.jpeg");
     -fx-background-size: stretch;
     -fx-background-position: center center;
