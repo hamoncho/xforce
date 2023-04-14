@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" stylesheets="@../css/areas.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.xforce.controller.AreasController">
+<AnchorPane id="AnchorPane" fx:id="anchorPaneAreas" prefHeight="600.0" prefWidth="1000.0" stylesheets="@../css/areas.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.xforce.controller.AreasController">
    <children>
       <GridPane alignment="CENTER" hgap="10.0" layoutX="135.0" layoutY="110.0" prefHeight="550.0" prefWidth="750.0" vgap="10.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="50.0">
          <columnConstraints>

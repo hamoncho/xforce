@@ -9,7 +9,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.xforce.controller.CardiovascularAreaController">
     <stylesheets>
-        <URL value="@/com/xforce/view/css/cardiovasculararea.css"/>
+        <URL value="@../css/cardiovasculararea.css"/>
         <URL value="@../css/areas.css"/>
     </stylesheets>
 </AnchorPane>
