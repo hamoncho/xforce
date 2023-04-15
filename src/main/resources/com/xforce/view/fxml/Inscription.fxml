@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane id="AnchorPane" prefWidth="1000.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.xforce.controller.InscriptionController">
+    <stylesheets>
+        <URL value="@/com/xforce/view/css/inscription.css" />
+    </stylesheets>
+   <children>
+      <ScrollPane fitToWidth="true" layoutX="134.0" layoutY="87.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <content>
+            <VBox alignment="CENTER">
+               <children>
+                  <AnchorPane fx:id="anchorPaneHead" prefHeight="400.0" VBox.vgrow="ALWAYS" />
+                  <AnchorPane prefHeight="300.0">
+                     <children>
+                        <VBox layoutX="119.0" layoutY="50.0" prefHeight="200.0" prefWidth="740.0" spacing="5.0" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="120.0">
+                           <children>
+                              <Label prefHeight="17.0" styleClass="label-plan-title" text="We Have" textAlignment="CENTER">
+                                 <VBox.margin>
+                                    <Insets bottom="15.0" top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Separator prefWidth="200.0" />
+                              <Label styleClass="label-plan" text="1. Cardiovascular area">
+                                 <VBox.margin>
+                                    <Insets left="15.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Separator prefWidth="200.0" />
+                              <Label styleClass="label-plan" text="2. Functional fitness area">
+                                 <VBox.margin>
+                                    <Insets left="15.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Separator prefWidth="200.0" />
+                              <Label styleClass="label-plan" text="3. Free weights area">
+                                 <VBox.margin>
+                                    <Insets left="15.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Separator prefWidth="200.0" />
+                              <Label styleClass="label-plan" text="4. Stretching and mobility area">
+                                 <VBox.margin>
+                                    <Insets left="15.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Separator prefWidth="200.0" />
+                              <Label styleClass="label-plan" text=" 5. Personal training corners">
+                                 <VBox.margin>
+                                    <Insets left="15.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Separator prefWidth="200.0" />
+                              <Label styleClass="label-plan" text="Massage chairs">
+                                 <VBox.margin>
+                                    <Insets left="15.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Separator prefWidth="200.0" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+                  <Label prefHeight="17.0" styleClass="label-plan-title" text="Choose the best plan and train now" textAlignment="CENTER">
+                     <VBox.margin>
+                        <Insets bottom="25.0" top="25.0" />
+                     </VBox.margin>
+                  </Label>
+                  <VBox spacing="20.0">
+                     <children>
+                        <AnchorPane prefHeight="200.0" styleClass="card-plan">
+                           <children>
+                              <AnchorPane layoutX="15.0" layoutY="10.0" prefHeight="50.0" styleClass="card-plan-head" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <Label styleClass="text-card-header" text="Only One Day" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="10.0" />
+                                    <Button layoutX="824.0" layoutY="13.0" mnemonicParsing="false" text="Pay Now" AnchorPane.rightAnchor="20.0" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="41.0" styleClass="card-plan-body" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+                                 <children>
+                                    <Label layoutX="708.0" layoutY="105.0" styleClass="label-cost" text="\$2.00 US" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="15.0" />
+                                    <VBox layoutX="74.0" layoutY="-56.0" prefWidth="500.0" spacing="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <Label text="Label">
+                                             <styleClass>
+                                                <String fx:value="label-plan-title" />
+                                                <String fx:value="text-white" />
+                                             </styleClass>
+                                          </Label>
+                                          <Label styleClass="text-white" text="Free weight area and integrated weight">
+                                             <VBox.margin>
+                                                <Insets left="15.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <Label styleClass="text-white" text="massage chairs">
+                                             <VBox.margin>
+                                                <Insets left="15.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <Label styleClass="text-white" text="Receive the latest news and exclusive promotions ">
+                                             <VBox.margin>
+                                                <Insets left="15.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                       </children>
+                                       <padding>
+                                          <Insets left="20.0" right="20.0" />
+                                       </padding>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="200.0" styleClass="card-plan">
+                           <children>
+                              <AnchorPane layoutX="15.0" layoutY="10.0" prefHeight="50.0" styleClass="card-plan-head" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <Label styleClass="text-card-header" text="Only One Week" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="10.0" />
+                                    <Button layoutX="824.0" layoutY="13.0" mnemonicParsing="false" text="Pay Now" AnchorPane.rightAnchor="20.0" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="41.0" styleClass="card-plan-body" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+                                 <children>
+                                    <Label layoutX="708.0" layoutY="105.0" styleClass="label-cost" text="\$10.00 US" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="15.0" />
+                                    <VBox layoutX="74.0" layoutY="-56.0" prefWidth="500.0" spacing="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <Label text="Label">
+                                             <styleClass>
+                                                <String fx:value="label-plan-title" />
+                                                <String fx:value="text-white" />
+                                             </styleClass>
+                                          </Label>
+                                          <Label styleClass="text-white" text="Free weight area and integrated weight">
+                                             <VBox.margin>
+                                                <Insets left="15.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <Label styleClass="text-white" text="massage chairs">
+                                             <VBox.margin>
+                                                <Insets left="15.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <Label styleClass="text-white" text="Receive the latest news and exclusive promotions ">
+                                             <VBox.margin>
+                                                <Insets left="15.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                       </children>
+                                       <padding>
+                                          <Insets left="20.0" right="20.0" />
+                                       </padding>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="200.0" styleClass="card-plan">
+                           <children>
+                              <AnchorPane layoutX="15.0" layoutY="10.0" prefHeight="50.0" styleClass="card-plan-head" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <Label styleClass="text-card-header" text="Three Month" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="10.0" />
+                                    <Button layoutX="824.0" layoutY="13.0" mnemonicParsing="false" text="Pay Now" AnchorPane.rightAnchor="20.0" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="41.0" styleClass="card-plan-body" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+                                 <children>
+                                    <Label layoutX="708.0" layoutY="105.0" styleClass="label-cost" text="\$20.00 US" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="15.0" />
+                                    <VBox layoutX="74.0" layoutY="-56.0" prefWidth="500.0" spacing="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <Label text="Label">
+                                             <styleClass>
+                                                <String fx:value="label-plan-title" />
+                                                <String fx:value="text-white" />
+                                             </styleClass>
+                                          </Label>
+                                          <Label styleClass="text-white" text="Free weight area and integrated weight">
+                                             <VBox.margin>
+                                                <Insets left="15.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <Label styleClass="text-white" text="massage chairs">
+                                             <VBox.margin>
+                                                <Insets left="15.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <Label styleClass="text-white" text="Receive the latest news and exclusive promotions ">
+                                             <VBox.margin>
+                                                <Insets left="15.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                       </children>
+                                       <padding>
+                                          <Insets left="20.0" right="20.0" />
+                                       </padding>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="200.0" styleClass="card-plan">
+                           <children>
+                              <AnchorPane layoutX="15.0" layoutY="10.0" prefHeight="50.0" styleClass="card-plan-head" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <Label styleClass="text-card-header" text="Six Month" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="10.0" />
+                                    <Button layoutX="824.0" layoutY="13.0" mnemonicParsing="false" text="Pay Now" AnchorPane.rightAnchor="20.0" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="41.0" styleClass="card-plan-body" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+                                 <children>
+                                    <Label layoutX="708.0" layoutY="105.0" styleClass="label-cost" text="\$40.00 US" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="15.0" />
+                                    <VBox layoutX="74.0" layoutY="-56.0" prefWidth="500.0" spacing="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <Label text="Label">
+                                             <styleClass>
+                                                <String fx:value="label-plan-title" />
+                                                <String fx:value="text-white" />
+                                             </styleClass>
+                                          </Label>
+                                          <Label styleClass="text-white" text="Free weight area and integrated weight">
+                                             <VBox.margin>
+                                                <Insets left="15.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <Label styleClass="text-white" text="massage chairs">
+                                             <VBox.margin>
+                                                <Insets left="15.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <Label styleClass="text-white" text="Receive the latest news and exclusive promotions ">
+                                             <VBox.margin>
+                                                <Insets left="15.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                       </children>
+                                       <padding>
+                                          <Insets left="20.0" right="20.0" />
+                                       </padding>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="200.0" styleClass="card-plan">
+                           <children>
+                              <AnchorPane layoutX="15.0" layoutY="10.0" prefHeight="50.0" styleClass="card-plan-head" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <Label styleClass="text-card-header" text="Yeard" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="10.0" />
+                                    <Button layoutX="824.0" layoutY="13.0" mnemonicParsing="false" text="Pay Now" AnchorPane.rightAnchor="20.0" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="41.0" styleClass="card-plan-body" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+                                 <children>
+                                    <Label layoutX="708.0" layoutY="105.0" styleClass="label-cost" text="\$60.00 US" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="15.0" />
+                                    <VBox layoutX="74.0" layoutY="-56.0" prefWidth="500.0" spacing="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <Label text="Label">
+                                             <styleClass>
+                                                <String fx:value="label-plan-title" />
+                                                <String fx:value="text-white" />
+                                             </styleClass>
+                                          </Label>
+                                          <Label styleClass="text-white" text="Free weight area and integrated weight">
+                                             <VBox.margin>
+                                                <Insets left="15.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <Label styleClass="text-white" text="massage chairs">
+                                             <VBox.margin>
+                                                <Insets left="15.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <Label styleClass="text-white" text="Receive the latest news and exclusive promotions ">
+                                             <VBox.margin>
+                                                <Insets left="15.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <Label styleClass="text-white" text="No cancellation penalty">
+                                             <VBox.margin>
+                                                <Insets left="15.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <Label styleClass="text-white" text="invite a friend">
+                                             <VBox.margin>
+                                                <Insets left="15.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                       </children>
+                                       <padding>
+                                          <Insets left="20.0" right="20.0" />
+                                       </padding>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="50.0" right="50.0" />
+                     </VBox.margin>
+                  </VBox>
+                  <AnchorPane prefHeight="200.0" />
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>
