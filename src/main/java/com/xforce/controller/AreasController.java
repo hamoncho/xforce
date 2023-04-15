@@ -13,6 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import static javafx.scene.input.MouseButton.PRIMARY;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
@@ -50,74 +51,101 @@ public class AreasController implements Initializable {
 
     @FXML
     private void OnMouseCardiovascularArea(MouseEvent event) {
-        try {
-            CustomerDashboardController.getSIGLETON()
-                    .getBorderPane()
-                    .setCenter(ViewManager
-                            .loadFXML(Views.CARDIOVASCULAR_AREA.getUrl())
-                    );
-        } catch (IOException ex) {
-            Logger.getLogger(AreasController.class.getName()).log(Level.SEVERE, null, ex);
+        switch (event.getButton()) {
+            case PRIMARY -> {
+                try {
+                    CustomerDashboardController.getSIGLETON()
+                            .getBorderPane()
+                            .setCenter(ViewManager
+                                    .loadFXML(Views.CARDIOVASCULAR_AREA.getUrl())
+                            );
+                } catch (IOException ex) {
+                    Logger.getLogger(AreasController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+            }
         }
+
     }
 
     @FXML
     private void OnMouseClickedFunctionalFitnessArea(MouseEvent event) {
-        try {
-            CustomerDashboardController.getSIGLETON()
-                    .getBorderPane()
-                    .setCenter(ViewManager
-                            .loadFXML(Views.FUNCTIONAL_FITNESS_AAREA.getUrl())
-                    );
-        } catch (IOException ex) {
-            Logger.getLogger(AreasController.class.getName()).log(Level.SEVERE, null, ex);
+        switch (event.getButton()) {
+            case PRIMARY -> {
+                try {
+                    CustomerDashboardController.getSIGLETON()
+                            .getBorderPane()
+                            .setCenter(ViewManager
+                                    .loadFXML(Views.FUNCTIONAL_FITNESS_AAREA.getUrl())
+                            );
+                } catch (IOException ex) {
+                    Logger.getLogger(AreasController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+            }
         }
 
     }
 
     @FXML
     private void OnMouseClikedFreeWeightsArea(MouseEvent event) {
-        try {
-            CustomerDashboardController.getSIGLETON()
-                    .getBorderPane()
-                    .setCenter(ViewManager
-                            .loadFXML(Views.FREE_WEIGHTS_AREA.getUrl())
-                    );
-        } catch (IOException ex) {
-            Logger.getLogger(AreasController.class.getName()).log(Level.SEVERE, null, ex);
+        switch (event.getButton()) {
+            case PRIMARY -> {
+                try {
+                    CustomerDashboardController.getSIGLETON()
+                            .getBorderPane()
+                            .setCenter(ViewManager
+                                    .loadFXML(Views.FREE_WEIGHTS_AREA.getUrl())
+                            );
+                } catch (IOException ex) {
+                    Logger.getLogger(AreasController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+            }
         }
 
     }
 
     @FXML
     private void OnMouseClikedStretchingAndMobilityArea(MouseEvent event) {
-        try {
-            CustomerDashboardController.getSIGLETON()
-                    .getBorderPane()
-                    .setCenter(ViewManager
-                            .loadFXML(Views.STRETCHING_AND_MOBILITY_AREA
-                                    .getUrl()
-                            )
-                    );
-        } catch (IOException ex) {
-            Logger.getLogger(AreasController.class.getName()).log(Level.SEVERE, null, ex);
+        switch (event.getButton()) {
+            case PRIMARY -> {
+                try {
+                    CustomerDashboardController.getSIGLETON()
+                            .getBorderPane()
+                            .setCenter(ViewManager
+                                    .loadFXML(Views.STRETCHING_AND_MOBILITY_AREA
+                                            .getUrl()
+                                    )
+                            );
+                } catch (IOException ex) {
+                    Logger.getLogger(AreasController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+            }
         }
 
     }
 
     @FXML
     private void OnMouseClikedPersonalTrainingCorners(MouseEvent event) {
-        try {
-            CustomerDashboardController.getSIGLETON()
-                    .getBorderPane()
-                    .setCenter(ViewManager
-                            .loadFXML(Views.PERSONAL_TRAINING_CORNERS_AREA
-                                    .getUrl()
-                            )
-                    );
-        } catch (IOException ex) {
-            Logger.getLogger(AreasController.class.getName()).log(Level.SEVERE, null, ex);
+        switch (event.getButton()) {
+            case PRIMARY -> {
+                try {
+                    CustomerDashboardController.getSIGLETON()
+                            .getBorderPane()
+                            .setCenter(ViewManager
+                                    .loadFXML(Views.PERSONAL_TRAINING_CORNERS_AREA
+                                            .getUrl()
+                                    )
+                            );
+                } catch (IOException ex) {
+                    Logger.getLogger(AreasController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+            }
         }
+
     }
 
 }
