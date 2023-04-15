@@ -5,3 +5,52 @@
 .mainFxmlClass {
 
 }
+
+.text{
+    -fx-font-family: "Segoe UI Semibold";
+}
+#anchorPaneHead{
+    -fx-background-image: url("../img/Cardiovascular-area.jpg");
+    -fx-background-size: cover;
+}
+.title{
+    -fx-text-fill: white;
+    -fx-font-size: 20;
+    -fx-alignment: center;
+}
+.cardCoach{
+    -fx-effect: dropshadow(three-pass-box, black, 10,0.03, 5, 5);
+    -fx-background-color: linear-gradient(to top right, #1E88E5, #85C1E9);
+    -fx-shape: "M100,100 h200 a20,20 0 0 1 20,20 v200 a20,20 0 0 1 -20,20 h-200 a20,20 0 0 1 -20,-20 v-200 a20,20 0 0 1 20,-20 z";
+}
+.cardCoachCover{
+    -fx-shape: "M100,100 h200 a20,20 0 0 1 20,20 v200 a20,20 0 0 1 -20,20 h-200 a20,20 0 0 1 -20,-20 v-200 a20,20 0 0 1 20,-20 z";
+    -fx-background-image: url("../img/Cardiovascular-area.jpg");
+    -fx-background-size: cover;
+}
+.cardCoach .label{
+    -fx-font-size: 16;
+    -fx-alignment: center;
+}
+.cardCoach:hover{
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+}
+.cardCoach:pressed{
+    -fx-scale-x: 1;
+    -fx-scale-y: 1;
+}
+.textCard{
+    -fx-fill: white;
+    -fx-font-size: 14;
+}
+
+
+.imgCoach{
+    -fx-background-image: url("../img/coach.png");
+    -fx-background-size: cover;
+}
+.textWhite{
+    -fx-fill: white;
+    -fx-font-size: 18;
+}

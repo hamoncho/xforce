@@ -1,18 +1,121 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.net.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.xforce.controller.FreeWeightsAreaController">
+<AnchorPane id="AnchorPane" prefWidth="900.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/18" fx:controller="com.xforce.controller.FreeWeightsAreaController">
     <stylesheets>
-        <URL value="@../css/freeweightsarea.css"/>
-        <URL value="@../css/areas.css"/>
+        <URL value="@../css/freeweightsarea.css" />
+        <URL value="@../css/areas.css" />
     </stylesheets>
-    <children>
-      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#onActionGoBack" text="Button" />
+   <children>
+      <ScrollPane fitToWidth="true" layoutX="10.0" layoutY="10.0" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <content>
+            <VBox alignment="CENTER">
+               <children>
+                  <AnchorPane fx:id="anchorPaneHead" prefHeight="550.0" prefWidth="700.0">
+                     <children>
+                        <Button layoutX="-2.0" layoutY="1.0" mnemonicParsing="false" onAction="#onActionGoBack" prefHeight="52.0" prefWidth="52.0" style="-fx-shape: &quot;M256 0C114.6 0 0 114.6 0 256c0 141.4 114.6 256 256 256s256-114.6 256-256C512 114.6 397.4 0 256 0zM384 288H205.3l49.38 49.38c12.5 12.5 12.5 32.75 0 45.25s-32.75 12.5-45.25 0L105.4 278.6C97.4 270.7 96 260.9 96 256c0-4.883 1.391-14.66 9.398-22.65l103.1-103.1c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25L205.3 224H384c17.69 0 32 14.33 32 32S401.7 288 384 288z&quot;;" />
+                        <HBox alignment="CENTER" layoutX="50.0" layoutY="240.0" style="-fx-background-color: #1E88E5A0;" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
+                           <children>
+                              <Label prefHeight="15.0" prefWidth="200.0" styleClass="title" text="Free Weights Area" />
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets bottom="20.0" top="20.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" style="-fx-background-color: #03A9F4;">
+                     <children>
+                        <TextFlow AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="20.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="textWhite" text="The basic workout tools in this area include dumbbells, barbells, benches, power racks and press stations. When you join a Holmes Place club, we’ll include the amount of sets and reps you need to perform in your personalised plan (if this area is necessary to achieve your goals). Using a ‘spotter’ (someone to support you lift weights safely) can help prevent injuries in this area and motivate you to lift to your maximum potential." wrappingWidth="105.13671875" />
+                           </children>
+                        </TextFlow>
+                     </children>
+                  </AnchorPane>
+                  <Label style="-fx-text-fill: black;" styleClass="title" text="Coach">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </Label>
+                  <HBox alignment="CENTER" fillHeight="false">
+                     <children>
+                        <AnchorPane prefHeight="350.0" prefWidth="250.0" styleClass="cardCoach">
+                           <HBox.margin>
+                              <Insets right="50.0" />
+                           </HBox.margin>
+                           <children>
+                              <Pane layoutX="8.0" layoutY="4.0" prefHeight="142.0" prefWidth="252.0" styleClass="cardCoachCover" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                              <Label layoutX="5.0" layoutY="176.0" prefHeight="20.0" prefWidth="260.0" text="Vidal" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                              <Label layoutX="70.0" layoutY="70.0" minWidth="-Infinity" prefHeight="100.0" prefWidth="100.0" style="-fx-shape: &quot;M 25, 50    a 25,25 0 1,1 50,0    a 25,25 0 1,1 -50,0&quot;;" styleClass="imgCoach" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="65.0" />
+                              <TextFlow layoutX="21.0" layoutY="215.0" prefHeight="73.0" prefWidth="225.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="215.0">
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="textCard" text="fa jdalk jflksaj lkfdsja lkjlksa joieoijalkkdj klfjdlka jflkdasj klfjsdalk jdasl; ja;lsdkjf l;kdsasj ;lkdjlk ajfddslkakj flkdsaj fkldsajf lkdasj lkdsajl k" />
+                                 </children>
+                              </TextFlow>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="350.0" prefWidth="250.0" styleClass="cardCoach">
+                           <children>
+                              <Pane layoutX="8.0" layoutY="4.0" prefHeight="142.0" prefWidth="252.0" styleClass="cardCoachCover" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                              <Label layoutX="5.0" layoutY="176.0" prefHeight="20.0" prefWidth="260.0" text="Vidal" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                              <Label layoutX="70.0" layoutY="70.0" minWidth="-Infinity" prefHeight="100.0" prefWidth="100.0" style="-fx-shape: &quot;M 25, 50    a 25,25 0 1,1 50,0    a 25,25 0 1,1 -50,0&quot;;" styleClass="imgCoach" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="65.0" />
+                              <TextFlow layoutX="21.0" layoutY="215.0" prefHeight="73.0" prefWidth="225.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="215.0">
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="textCard" text="fa jdalk jflksaj lkfdsja lkjlksa joieoijalkkdj klfjdlka jflkdasj klfjsdalk jdasl; ja;lsdkjf l;kdsasj ;lkdjlk ajfddslkakj flkdsaj fkldsajf lkdasj lkdsajl k" />
+                                 </children>
+                              </TextFlow>
+                           </children>
+                           <HBox.margin>
+                              <Insets left="30.0" right="30.0" />
+                           </HBox.margin>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="350.0" prefWidth="250.0" styleClass="cardCoach">
+                           <children>
+                              <Pane layoutX="8.0" layoutY="4.0" prefHeight="142.0" prefWidth="252.0" styleClass="cardCoachCover" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                              <Label layoutX="5.0" layoutY="176.0" prefHeight="20.0" prefWidth="260.0" text="Vidal" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                              <Label layoutX="70.0" layoutY="70.0" minWidth="-Infinity" prefHeight="100.0" prefWidth="100.0" style="-fx-shape: &quot;M 25, 50    a 25,25 0 1,1 50,0    a 25,25 0 1,1 -50,0&quot;;" styleClass="imgCoach" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="65.0" />
+                              <TextFlow layoutX="21.0" layoutY="215.0" prefHeight="73.0" prefWidth="225.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="215.0">
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="textCard" text="fa jdalk jflksaj lkfdsja lkjlksa joieoijalkkdj klfjdlka jflkdasj klfjsdalk jdasl; ja;lsdkjf l;kdsasj ;lkdjlk ajfddslkakj flkdsaj fkldsajf lkdasj lkdsajl k" />
+                                 </children>
+                              </TextFlow>
+                           </children>
+                           <HBox.margin>
+                              <Insets left="50.0" />
+                           </HBox.margin>
+                        </AnchorPane>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="30.0" top="30.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <AnchorPane prefHeight="200.0" style="-fx-background-color: black;">
+                     <children>
+                        <TextFlow AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="20.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="textWhite" text="The basic workout tools in this area include dumbbells, barbells, benches, power racks and press stations. When you join a Holmes Place club, we’ll include the amount of sets and reps you need to perform in your personalised plan (if this area is necessary to achieve your goals). Using a ‘spotter’ (someone to support you lift weights safely) can help prevent injuries in this area and motivate you to lift to your maximum potential." wrappingWidth="105.13671875" />
+                           </children>
+                        </TextFlow>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
    </children>
 </AnchorPane>

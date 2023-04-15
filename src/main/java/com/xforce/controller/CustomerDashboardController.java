@@ -201,4 +201,19 @@ public class CustomerDashboardController implements Initializable {
 
     }
 
+    public static CustomerDashboardController getSIGLETON() {
+        return SIGLETON;
+    }
+
+    public BorderPane getBorderPane() {
+        return borderPane;
+    }
+
+    public void setBorderPane(BorderPane borderPane) {
+        this.borderPane = borderPane;
+    }
+
+    
+    
+
 }
