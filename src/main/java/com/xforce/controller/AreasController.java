@@ -51,7 +51,10 @@ public class AreasController implements Initializable {
     @FXML
     private void OnMouseCardiovascularArea(MouseEvent event) {
         try {
-            anchorPaneAreas.getChildren().setAll(ViewManager.loadFXML(Views.CARDIOVASCULAR_AREA.getUrl()));
+            CustomerDashboardController.getSIGLETON()
+                    .getBorderPane()
+                    .setCenter(ViewManager
+                            .loadFXML(Views.CARDIOVASCULAR_AREA.getUrl()));
         } catch (IOException ex) {
             Logger.getLogger(AreasController.class.getName()).log(Level.SEVERE, null, ex);
         }
