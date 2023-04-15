@@ -17,7 +17,8 @@ import java.util.Optional;
  */
 public interface DataBase {
 
-    public Optional<? extends User> logIn(String password, String username);
+    public Optional<? extends User> logIn(String password, String username)
+            throws Exception;
 
     public void signIn(User user) throws Exception, IllegalArgumentException;
 
@@ -29,11 +30,12 @@ public interface DataBase {
 
     public boolean instructorExists(Instructor instructor);
 
-    public boolean userNameExists(String userName);
+    public boolean userNameExists(String userName) throws Exception;
 
-    public boolean emailExists(String email);
+    public boolean emailExists(String email) throws Exception;
 
-    public Optional<Integer> getIdUsuario(String username, String password);
+    public Optional<Integer> getIdUsuario(String username, String password)
+            throws Exception;
 
     public void becomeAdmin(User current, Admin target)
             throws Exception, IllegalArgumentException;
@@ -50,9 +52,9 @@ public interface DataBase {
     public Optional<? extends User> getUser(int id)
             throws Exception, IllegalArgumentException;
 
-    public void addUser(User user)throws Exception, IllegalArgumentException;
+    public void addUser(User user) throws Exception, IllegalArgumentException;
 
-    public void deleteUser(int id)throws Exception, IllegalArgumentException;
+    public void deleteUser(int id) throws Exception, IllegalArgumentException;
 
     public void updateUser(int id, User userUpdate)
             throws Exception, IllegalArgumentException;
