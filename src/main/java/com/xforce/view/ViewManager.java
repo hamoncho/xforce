@@ -19,7 +19,8 @@ import javafx.stage.StageStyle;
  * @author Hamoncho
  */
 public class ViewManager {
-private static final StageBuilder SINGLE_STAGE = new StageBuilder();
+
+    private static final StageBuilder SINGLE_STAGE = new StageBuilder();
 
     public static void go(Views view) {
         switch (view) {
@@ -47,8 +48,7 @@ private static final StageBuilder SINGLE_STAGE = new StageBuilder();
     private static StageBuilder loadView(Views view) {
         try {
             Scene scene = new Scene(loadFXML(view.getUrl()));
-            SINGLE_STAGE
-                    .newStage()
+            SINGLE_STAGE.newStage()
                     .setScene(scene);
         } catch (IOException ex) {
             Logger.getLogger(ViewManager.class.getName()).log(Level.SEVERE, null, ex);
@@ -57,4 +57,3 @@ private static final StageBuilder SINGLE_STAGE = new StageBuilder();
     }
 
 }
-

@@ -79,12 +79,16 @@ public class CustomerDashboardController implements Initializable {
 
     CalendarView calendarView = new CalendarView(); // (1)
 
+    private static CustomerDashboardController SIGLETON;
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+
+        SIGLETON = this;
         addContenido();
         animacionNav();
         Rectangle rectangle = new Rectangle(imageViewCover.getFitWidth(), imageViewCover.getFitHeight());
@@ -177,7 +181,7 @@ public class CustomerDashboardController implements Initializable {
 
     @FXML
     private void onActionUserName(ActionEvent event) {
-        
+
     }
 
     @FXML
@@ -188,6 +192,13 @@ public class CustomerDashboardController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(CustomerDashboardController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    public static void setAreasView() {
+
+            SIGLETON.onMousePressedAreas(null);
+
+
     }
 
 }
