@@ -223,15 +223,55 @@ public class MySQL implements DataBase {
 
     @Override
     public boolean userExists(User user) {
+        return userExtendsExists(user, "usuario");
+    }
+
+    @Override
+    public boolean adminExists(Admin admin) {
+        if (userExtendsExists(admin, "admin")) {
+            PreparedStatement ps;
+            ResultSet rs;
+
+            try ( var con = getConnection()) {
+                var query = "SELECT nombre FROM admin WHERE Nombre = ? and"
+                        + " Apellido = ?"
+                        + " and id_Usuario = ?"
+                        + " and tipo_Usuario = ?";
+
+                ps = con.prepareStatement(query);
+
+                ps.setString(1, admin.getNombre());
+                ps.setString(2, admin.getApellido());
+                ps.setString(3, "" + admin.getId_Usuario());
+                ps.setString(4, "" + admin.getTipo_Usuario());
+
+                rs = ps.executeQuery();
+
+                if (rs.next()) {
+                    return true;
+
+                }
+
+            } catch (SQLException ex) {
+                return false;
+            }
+
+        }
+
+        return false;
+    }
+
+    public boolean userExtendsExists(User user, String tabla) {
         ResultSet rs;
         PreparedStatement ps;
 
         try ( var con = getConnection()) {
-            var query = "SELECT * FROM usuario WHERE id_Usuario = ?";
+            var query = "SELECT * FROM ? WHERE id_Usuario = ?";
 
             ps = con.prepareStatement(query);
 
-            ps.setString(1, "" + user.getId_Usuario());
+            ps.setString(1, tabla);
+            ps.setString(2, "" + user.getId_Usuario());
 
             rs = ps.executeQuery();
 
@@ -260,17 +300,25 @@ public class MySQL implements DataBase {
         } catch (Exception ex) {
             Logger.getLogger(MySQL.class.getName()).log(Level.SEVERE, null, ex);
         }
+
         return false;
     }
 
     @Override
-    public boolean adminExists(Admin admin) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
     public boolean clienteExists(Cliente cliente) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        if (userExtendsExists(cliente, "cliente")) {
+            PreparedStatement ps;
+            ResultSet rs;
+            
+            try (var con = getConnection()) {
+                
+                
+            } catch (SQLException ex) {
+            return true;
+            }
+        }
+        
+        return false;
     }
 
     @Override
