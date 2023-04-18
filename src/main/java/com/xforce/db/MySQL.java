@@ -81,6 +81,11 @@ public class MySQL implements DataBase {
         return Optional.empty();
     }
 
+    /**
+     * sign in a user
+     * @param {@code user} 
+     *
+     */
     @Override
     public void signIn(User user) throws Exception, IllegalArgumentException {
 
@@ -266,12 +271,11 @@ public class MySQL implements DataBase {
         PreparedStatement ps;
 
         try ( var con = getConnection()) {
-            var query = "SELECT * FROM ? WHERE id_Usuario = ?";
+            var query = "SELECT * FROM " + tabla + " WHERE id_Usuario = ?;";
 
             ps = con.prepareStatement(query);
 
-            ps.setString(1, tabla);
-            ps.setString(2, "" + user.getId_Usuario());
+            ps.setString(1, "" + user.getId_Usuario());
 
             rs = ps.executeQuery();
 
@@ -309,15 +313,14 @@ public class MySQL implements DataBase {
         if (userExtendsExists(cliente, "cliente")) {
             PreparedStatement ps;
             ResultSet rs;
-            
-            try (var con = getConnection()) {
-                
-                
+
+            try ( var con = getConnection()) {
+
             } catch (SQLException ex) {
-            return true;
+                return true;
             }
         }
-        
+
         return false;
     }
 
@@ -328,7 +331,60 @@ public class MySQL implements DataBase {
 
     @Override
     public void becomeAdmin(User current, Admin target) throws Exception, IllegalArgumentException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        if (!userExists(current)) {
+            throw new Exception("The user not exists.");
+
+        }
+        if (target.getId_Usuario() != current.getId_Usuario()) {
+            throw new IllegalArgumentException(
+                    "The id of the current and target do not match.");
+
+        }
+        if (!target.getUsername().equals(current.getUsername())) {
+            throw new IllegalArgumentException(
+                    "The username of the current and target do not match.");
+        }
+        if (!target.getEmail().equals(current.getEmail())) {
+            throw new IllegalArgumentException(
+                    "The email of the current and target do not match.");
+
+        }
+        if (!target.getTelefono().equals(current.getTelefono())) {
+            throw new IllegalArgumentException(
+                    "The phone of the current and target do not match.");
+
+        }
+        if (!target.getContrasenna().equals(current.getContrasenna())) {
+            System.out.println(target.getContrasenna() + " no concide con " + current.getContrasenna());
+
+            throw new IllegalArgumentException(
+                    "The password of the current and target do not match.");
+
+        }
+        if (current.getTipo_Usuario() != 3) {
+            throw new IllegalArgumentException(
+                    "The user type does not have permission to be admin.");
+
+        }
+
+        PreparedStatement ps;
+
+        try ( var con = getConnection()) {
+            var query = "INSERT INTO xforce.admin"
+                    + "(id_Usuario, Nombre, Apellido) "
+                    + "VALUES(?, ?, ?);";
+
+            ps = con.prepareStatement(query);
+
+            ps.setString(1, "" + target.getId_Usuario());
+            ps.setString(2, target.getNombre());
+            ps.setString(3, target.getApellido());
+
+            ps.execute();
+
+        } catch (SQLException ex) {
+            throw new Exception(ex.getMessage());
+        }
     }
 
     @Override

@@ -4,8 +4,11 @@
  */
 package com.xforce.db;
 
+import com.xforce.model.Admin;
 import com.xforce.model.User;
 import java.util.Optional;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -86,6 +89,38 @@ public class MySQLTest {
         assertEquals(user.getTelefono(), optional.get().getTelefono());
         assertEquals(user.getContrasenna(), optional.get().getContrasenna());
         assertEquals(user.getTipo_Usuario(), optional.get().getTipo_Usuario());
+
+    }
+
+    @Test
+    public void becomeAdmin() {
+        try {
+            User user = new User();
+
+            user.setId_Usuario(2);
+            user.setUsername("axel");
+            user.setEmail("axel@gmail.com");
+            user.setTelefono("452167339");
+            user.setContrasenna("FVp2qH6S@");
+            user.setTipo_Usuario(3);
+
+            Admin admin = new Admin();
+
+            admin.setId_Usuario(2);
+            admin.setUsername("axel");
+            admin.setEmail("axel@gmail.com");
+            admin.setTelefono("452167339");
+            admin.setContrasenna("FVp2qH6S@");
+            admin.setTipo_Usuario(0);
+            admin.setNombre("Axel");
+            admin.setApellido("Alcantar");
+
+            MySQL mysql = new MySQL();
+
+            mysql.becomeAdmin(user, admin);
+        } catch (Exception ex) {
+            Logger.getLogger(MySQLTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }
 
