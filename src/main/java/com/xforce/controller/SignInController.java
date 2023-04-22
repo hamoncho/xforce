@@ -6,8 +6,6 @@ package com.xforce.controller;
 
 import com.xforce.db.MySQL;
 import com.xforce.model.User;
-import com.xforce.model.UserType;
-import com.xforce.utils.Validate;
 import com.xforce.view.ViewManager;
 import com.xforce.view.Views;
 import java.net.URL;
@@ -70,9 +68,10 @@ public class SignInController implements Initializable {
 
             Alert a = new Alert(Alert.AlertType.INFORMATION);
             a.setTitle("Sign up");
-            a.setContentText("Usuario Agregado con exito : " 
-                    + user.getUsername());
-            a.show();
+            a.setContentText("user " + user.getUsername() + "add to database");
+            a.showAndWait();
+
+	    ViewManager.go(Views.LOGIN); 	//go to login after sign in.
 
         } catch (IllegalArgumentException e) {
             Alert a = new Alert(Alert.AlertType.ERROR);
