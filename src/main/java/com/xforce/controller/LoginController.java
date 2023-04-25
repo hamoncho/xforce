@@ -36,7 +36,14 @@ public class LoginController implements Initializable {
 
     @FXML
     private void OnActionLogin(ActionEvent event) {
-        ViewManager.go(Views.CUSTOMER_DASHBOARD);
+	final var userName = textFieldUser.getText();
+	final var userPassword = passwordField.getText();
+
+	if(userName.equals("user")){  
+            ViewManager.go(Views.INSCRIPTION);
+	}else{
+	    ViewManager.go(Views.CUSTOMER_DASHBOARD);
+	}
     }
 
     @FXML

@@ -86,7 +86,6 @@ public class CustomerDashboardController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
 
         SIGLETON = this;
         addContenido();
@@ -98,7 +97,6 @@ public class CustomerDashboardController implements Initializable {
 
         Circle circle = new Circle(imageViewUser.getFitWidth() / 2);
         circle.setCenterX(50);
-        //circle.setCenterY(imageViewUser.getLayoutY()+imageViewUser.getFitHeight()/2);
         circle.setCenterY(50);
 
         circle.setEffect(new DropShadow(20, 30, 30, Color.rgb(0, 0, 0, 1)));
@@ -182,6 +180,12 @@ public class CustomerDashboardController implements Initializable {
     @FXML
     private void onActionUserName(ActionEvent event) {
 
+    }
+
+    @FXML
+    private void onMousePressedLogout(MouseEvent event){
+
+        ViewManager.go(Views.LOGIN);
     }
 
     @FXML
