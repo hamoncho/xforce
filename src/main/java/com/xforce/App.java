@@ -1,5 +1,6 @@
 package com.xforce;
 
+import com.xforce.db.MySQL;
 import com.xforce.view.ViewManager;
 import com.xforce.view.Views;
 import javafx.application.Application;
@@ -14,7 +15,7 @@ public class App extends Application {
 
 
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage stage) throws IOException, Exception {
         ViewManager.go(Views.LOGIN);
     }
 
