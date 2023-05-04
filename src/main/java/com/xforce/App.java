@@ -1,6 +1,5 @@
 package com.xforce;
 
-import com.xforce.db.MySQL;
 import com.xforce.view.ViewManager;
 import com.xforce.view.Views;
 import javafx.application.Application;

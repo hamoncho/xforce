@@ -20,7 +20,7 @@ import static org.junit.jupiter.api.Assertions.*;
  *
  * @author hamoncho
  */
-public class MySQLTest {
+public class MySQLtest {
 
     @Test
     public void userNameExistsTest() throws Exception {
@@ -119,12 +119,12 @@ public class MySQLTest {
 
             mysql.becomeAdmin(user, admin);
         } catch (Exception ex) {
-            Logger.getLogger(MySQLTest.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MySQLtest.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
 
-    /*
+    
     @BeforeAll
     public static void setUpClass() {
         System.out.println("");
@@ -141,10 +141,8 @@ public class MySQLTest {
     @AfterEach
     public void tearDown() {
     }
-     */
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+     
+    
+     @Test
+     public void user_add() {}
 }

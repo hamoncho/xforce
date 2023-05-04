@@ -4,50 +4,40 @@
  */
 package com.xforce.controller;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.VBox;
-
-import com.calendarfx.model.Calendar;
-import com.calendarfx.model.Calendar.Style;
-
-import com.calendarfx.model.CalendarSource;
-import com.calendarfx.model.Entry;
-import com.calendarfx.model.Interval;
-
-import com.calendarfx.view.CalendarView;
-import com.calendarfx.view.ZonedDateTimeProvider;
-import com.xforce.view.ViewManager;
-import com.xforce.view.Views;
 import java.io.IOException;
-import static java.lang.Math.random;
-import static java.lang.Thread.sleep;
-
+import java.net.URL;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.Month;
 import java.time.ZoneId;
-import java.time.ZonedDateTime;
+import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import com.calendarfx.model.Calendar;
+import com.calendarfx.model.Calendar.Style;
+import com.calendarfx.model.CalendarSource;
+import com.calendarfx.model.Entry;
+import com.calendarfx.model.Interval;
+import com.calendarfx.view.CalendarView;
+import com.xforce.view.ViewManager;
+import com.xforce.view.Views;
+
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
-import javafx.application.ConditionalFeature;
 import javafx.application.Platform;
-import javafx.beans.binding.DoubleBinding;
-import javafx.beans.property.DoubleProperty;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.effect.DropShadow;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
@@ -112,27 +102,24 @@ public class CustomerDashboardController implements Initializable {
         timeline.getKeyFrames().addAll(
                 new KeyFrame(Duration.ZERO, // set start position at 0
                         new KeyValue(nav.translateXProperty(), -250),
-                        new KeyValue(nav.translateYProperty(), 0)
-                ),
+                        new KeyValue(nav.translateYProperty(), 0)),
                 new KeyFrame(new Duration(2000), // set end position at 40s
                         new KeyValue(nav.translateXProperty(), 0),
-                        new KeyValue(nav.translateYProperty(), 0)
-                )
-        );
+                        new KeyValue(nav.translateYProperty(), 0)));
 
         timeline.play();
     }
 
     private void addContenido() {
 
-        Calendar cardio = new Calendar("Cardio"); // (2)
-        Calendar pierna = new Calendar("Pierna");
+        var cardio = new Calendar<>("Cardio"); // (2)
+        var pierna = new Calendar<>("Pierna");
         Interval i = new Interval(
                 LocalDateTime.of(2023, Month.MARCH, 11, 20, 25, 50),
                 LocalDateTime.of(2023, Month.MARCH, 11, 21, 25, 50),
                 ZoneId.systemDefault());
 
-        pierna.addEntries(new Entry("Sentadilla", i));
+        pierna.addEntries(new Entry<>("Sentadilla", i));
 
         cardio.setStyle(Style.STYLE1); // (3)
         pierna.setStyle(Style.STYLE2);
@@ -174,7 +161,6 @@ public class CustomerDashboardController implements Initializable {
     @FXML
     private void onMousePressedSchedule(MouseEvent event) {
         borderPane.setCenter(calendarView);
-        //animacionNav();
     }
 
     @FXML
@@ -183,7 +169,7 @@ public class CustomerDashboardController implements Initializable {
     }
 
     @FXML
-    private void onMousePressedLogout(MouseEvent event){
+    private void onMousePressedLogout(MouseEvent event) {
 
         ViewManager.go(Views.LOGIN);
     }
@@ -192,7 +178,6 @@ public class CustomerDashboardController implements Initializable {
     private void onMousePressedAreas(MouseEvent event) {
         try {
             borderPane.setCenter(ViewManager.loadFXML(Views.AREAS.getUrl()));
-
         } catch (IOException ex) {
             Logger.getLogger(CustomerDashboardController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -200,8 +185,7 @@ public class CustomerDashboardController implements Initializable {
 
     public static void setAreasView() {
 
-            SIGLETON.onMousePressedAreas(null);
-
+        SIGLETON.onMousePressedAreas(null);
 
     }
 
@@ -216,8 +200,5 @@ public class CustomerDashboardController implements Initializable {
     public void setBorderPane(BorderPane borderPane) {
         this.borderPane = borderPane;
     }
-
-    
-    
 
 }
