@@ -2,6 +2,7 @@
 
 <?import java.net.URL?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -12,17 +13,19 @@
         <URL value="@../css/adminpanel.css" />
     </stylesheets>
    <children>
-      <ScrollPane layoutX="354.0" layoutY="350.0" prefHeight="390.0" prefWidth="560.0" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="440.0">
+      <ScrollPane layoutX="354.0" layoutY="350.0" prefHeight="390.0" prefWidth="607.0" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="378.0" AnchorPane.topAnchor="160.0">
          <content>
-            <VBox fx:id="vBoxContainer" prefHeight="381.0" prefWidth="536.0" />
+            <VBox fx:id="vBoxContainer" prefHeight="381.0" prefWidth="599.0" spacing="10.0" />
          </content>
       </ScrollPane>
-      <Button layoutX="15.0" layoutY="556.0" mnemonicParsing="false" onAction="#OnActionEliminar" text="Eliminar" />
-      <Button layoutX="87.0" layoutY="556.0" mnemonicParsing="false" onAction="#OnActionAdmin" text="Admin" />
-      <Button layoutX="869.0" layoutY="361.0" mnemonicParsing="false" onAction="#OnActionCliente" text="Cliente" />
-      <TextField fx:id="textFieldApellidos" layoutX="652.0" layoutY="160.0" prefHeight="25.0" prefWidth="270.0" promptText="Apellidos" />
-      <TextField fx:id="textFieldNumTarjeta" layoutX="652.0" layoutY="207.0" prefHeight="25.0" prefWidth="270.0" promptText="Num_Tarjeta" />
-      <TextField fx:id="textFieldNacimiento" layoutX="652.0" layoutY="260.0" prefHeight="25.0" prefWidth="270.0" promptText="Fecha_Nacimiento" />
-      <TextField fx:id="textFieldTipoSangineo" layoutX="652.0" layoutY="307.0" prefHeight="25.0" prefWidth="270.0" promptText="Tipo_Sanguineo" />
+      <Button layoutX="15.0" layoutY="556.0" mnemonicParsing="false" onAction="#OnActionEliminar" text="Eliminar" AnchorPane.bottomAnchor="119.0" AnchorPane.leftAnchor="15.0" />
+      <Button layoutX="799.0" layoutY="361.0" mnemonicParsing="false" onAction="#OnActionAdmin" text="Admin" AnchorPane.rightAnchor="78.0" AnchorPane.topAnchor="361.0" />
+      <Button layoutX="794.0" layoutY="361.0" mnemonicParsing="false" onAction="#OnActionCliente" text="Cliente" AnchorPane.rightAnchor="153.0" AnchorPane.topAnchor="361.0" />
+      <TextField fx:id="textFieldApellidos" layoutX="652.0" layoutY="179.0" prefHeight="25.0" prefWidth="270.0" promptText="Apellidos" AnchorPane.rightAnchor="78.0" AnchorPane.topAnchor="179.0" />
+      <TextField fx:id="textFieldNumTarjeta" layoutX="652.0" layoutY="221.0" prefHeight="25.0" prefWidth="270.0" promptText="Num_Tarjeta" AnchorPane.rightAnchor="78.0" AnchorPane.topAnchor="221.0" />
+      <TextField fx:id="textFieldNacimiento" layoutX="652.0" layoutY="267.0" prefHeight="25.0" prefWidth="270.0" promptText="Fecha_Nacimiento" AnchorPane.rightAnchor="78.0" AnchorPane.topAnchor="135.0" />
+      <TextField fx:id="textFieldTipoSangineo" layoutX="652.0" layoutY="307.0" prefHeight="25.0" prefWidth="270.0" promptText="Tipo_Sanguineo" AnchorPane.rightAnchor="78.0" AnchorPane.topAnchor="268.0" />
+      <TextField fx:id="textFieldNombre" layoutX="652.0" layoutY="314.0" prefHeight="25.0" prefWidth="270.0" promptText="Nombre" AnchorPane.rightAnchor="78.0" AnchorPane.topAnchor="314.0" />
+      <Label fx:id="labelSelected" layoutX="655.0" layoutY="95.0" prefHeight="25.0" prefWidth="270.0" AnchorPane.leftAnchor="655.0" AnchorPane.rightAnchor="75.0" AnchorPane.topAnchor="95.0" />
    </children>
 </AnchorPane>

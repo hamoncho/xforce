@@ -5,3 +5,16 @@
 .mainFxmlClass {
 
 }
+.itemUsuario{
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-background-color: #E3F2FDAA;
+    -fx-border-color: #03A9F45A;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+}
+.itemUsuario:hover{
+    -fx-background-color: #03A9F45A;
+}
+.itemSelected{
+     -fx-background-color: #03A9F45A;
+}

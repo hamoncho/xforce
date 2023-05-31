@@ -15,6 +15,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -49,7 +50,7 @@ public class MySQL implements DataBase {
         PreparedStatement ps;
         ResultSet rs;
 
-        try ( var con = getConnection()) {
+        try (var con = getConnection()) {
             var query = "SELECT * FROM usuario WHERE username = ?"
                     + " and contrasenna = ?";
 
@@ -81,9 +82,43 @@ public class MySQL implements DataBase {
         return Optional.empty();
     }
 
+    public ArrayList<User> getAllUser() {
+        ArrayList<User> listUser = new ArrayList<>();
+        PreparedStatement ps;
+        ResultSet rs;
+
+        try (var con = getConnection()) {
+            var query = "SELECT * FROM usuario";
+
+            ps = con.prepareStatement(query);
+
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                User user = new User();
+
+                user.setId_Usuario(rs.getInt("id_Usuario"));
+                user.setUsername(rs.getString("username"));
+                user.setEmail(rs.getString("email"));
+                user.setTelefono(rs.getString("telefono"));
+                user.setContrasenna(rs.getString("contrasenna"));
+                user.setTipo_Usuario(rs.getInt("tipo_Usuario"));
+
+                listUser.add(user);
+
+            }
+
+        } catch (SQLException ex) {
+            System.out.println("Error en getAllUser");
+        }
+
+        return listUser;
+    }
+
     /**
      * sign in a user
-     * @param {@code user} 
+     *
+     * @param {@code user}
      *
      */
     @Override
@@ -122,7 +157,7 @@ public class MySQL implements DataBase {
                 + "(username, email, telefono, contrasenna) "
                 + "VALUES(?, ?, ?, ?);";
 
-        try ( var con = getConnection()) {
+        try (var con = getConnection()) {
 
             ps = con.prepareStatement(query);
 
@@ -148,7 +183,7 @@ public class MySQL implements DataBase {
 
         var query = "SELECT username FROM usuario WHERE username = ?;";
 
-        try ( var con = getConnection()) {
+        try (var con = getConnection()) {
             ps = con.prepareStatement(query);
 
             ps.setString(1, userName);
@@ -175,7 +210,7 @@ public class MySQL implements DataBase {
 
         var query = "SELECT email FROM usuario WHERE email = ?;";
 
-        try ( var con = getConnection()) {
+        try (var con = getConnection()) {
             ps = con.prepareStatement(query);
 
             ps.setString(1, email);
@@ -205,7 +240,7 @@ public class MySQL implements DataBase {
         var query = "SELECT id_Usuario FROM usuario"
                 + " WHERE username = ? and contrasenna = ?";
 
-        try ( var con = getConnection()) {
+        try (var con = getConnection()) {
             ps = con.prepareStatement(query);
 
             ps.setString(1, username);
@@ -237,7 +272,7 @@ public class MySQL implements DataBase {
             PreparedStatement ps;
             ResultSet rs;
 
-            try ( var con = getConnection()) {
+            try (var con = getConnection()) {
                 var query = "SELECT nombre FROM admin WHERE Nombre = ? and"
                         + " Apellido = ?"
                         + " and id_Usuario = ?"
@@ -270,7 +305,7 @@ public class MySQL implements DataBase {
         ResultSet rs;
         PreparedStatement ps;
 
-        try ( var con = getConnection()) {
+        try (var con = getConnection()) {
             var query = "SELECT * FROM " + tabla + " WHERE id_Usuario = ?;";
 
             ps = con.prepareStatement(query);
@@ -314,7 +349,7 @@ public class MySQL implements DataBase {
             PreparedStatement ps;
             ResultSet rs;
 
-            try ( var con = getConnection()) {
+            try (var con = getConnection()) {
 
             } catch (SQLException ex) {
                 return true;
@@ -369,7 +404,7 @@ public class MySQL implements DataBase {
 
         PreparedStatement ps;
 
-        try ( var con = getConnection()) {
+        try (var con = getConnection()) {
             var query = "INSERT INTO xforce.admin"
                     + "(id_Usuario, Nombre, Apellido) "
                     + "VALUES(?, ?, ?);";
@@ -389,7 +424,24 @@ public class MySQL implements DataBase {
 
     @Override
     public void becomeCliente(User current, Cliente target) throws Exception, IllegalArgumentException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+       String sql = "INSERT INTO cliente (id_Usuario, Nombre, Apellido, Num_Tarjeta, Fecha_Tarjeta, Fecha_Nacimiento, Tipo_Sanguineo) VALUES (?, ?, ?, ?, ?, ?, ?);UPDATE usuario SET tipo_Usuario = 1 WHERE tipo_Usuario = ?;";
+            
+            PreparedStatement pstmt = getConnection().prepareStatement(sql);
+            pstmt.setInt(1, current.getId_Usuario());
+            pstmt.setString(2, target.getNombre());
+            pstmt.setString(3, target.getApellido());
+            pstmt.setString(4, target.getNum_targeta());
+            pstmt.setString(5, target.getFecha_targeta().toString());
+            pstmt.setString(6, target.getFecha_nacimiento().toString());
+            pstmt.setString(7, target.getTipo_sanguineo());
+            pstmt.setInt(8, current.getId_Usuario());
+            
+            int filasAfectadas = pstmt.executeUpdate();
+            if (filasAfectadas > 0) {
+                System.out.println("Se insertó el nuevo cliente correctamente.");
+            } else {
+                System.out.println("No se pudo insertar el nuevo cliente.");
+            }
     }
 
     @Override
@@ -409,12 +461,26 @@ public class MySQL implements DataBase {
 
     @Override
     public void deleteUser(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        try {
+            String sql = "DELETE FROM usuario WHERE id_Usuario = ?";
+
+            PreparedStatement pstmt = getConnection().prepareStatement(sql);
+            pstmt.setInt(1, id);
+
+            int filasAfectadas = pstmt.executeUpdate();
+            if (filasAfectadas > 0) {
+                System.out.println("Se eliminó la fila correctamente.");
+            } else {
+                System.out.println("No se encontró ninguna fila para eliminar.");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(MySQL.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @Override
     public void updateUser(int id, User userUpdate) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-
+//
 }

@@ -4,6 +4,8 @@
  */
 package com.xforce.model;
 
+import java.time.LocalDate;
+
 /**
  *
  * @author hamoncho
@@ -16,6 +18,15 @@ public class User {
     private String telefono;
     private String contrasenna;
     private int tipo_Usuario;
+    private LocalDate fechaRegistro;
+
+    public LocalDate getFechaRegistro() {
+        return fechaRegistro;
+    }
+
+    public void setFechaRegistro(LocalDate fechaRegistro) {
+        this.fechaRegistro = fechaRegistro;
+    }
 
     /**
      * Return user id
