@@ -16,6 +16,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Optional;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.scene.control.Alert;
 
 /**
@@ -41,11 +43,49 @@ public class MySQL implements DataBase {
     }
 
     @Override
-    public Optional<? extends User> logIn(String password, String username) {
-        Optional<User> al = Optional.of(new User());
-        return al;
+    public Optional<? extends User> logIn(String password, String username)
+            throws Exception {
+
+        PreparedStatement ps;
+        ResultSet rs;
+
+        try ( var con = getConnection()) {
+            var query = "SELECT * FROM usuario WHERE username = ?"
+                    + " and contrasenna = ?";
+
+            ps = con.prepareStatement(query);
+
+            ps.setString(1, username);
+            ps.setString(2, password);
+
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                User user = new User();
+
+                user.setId_Usuario(rs.getInt("id_Usuario"));
+                user.setUsername(rs.getString("username"));
+                user.setEmail(rs.getString("email"));
+                user.setTelefono(rs.getString("telefono"));
+                user.setContrasenna(rs.getString("contrasenna"));
+                user.setTipo_Usuario(rs.getInt("tipo_Usuario"));
+
+                return Optional.of(user);
+
+            }
+
+        } catch (SQLException ex) {
+            return Optional.empty();
+        }
+
+        return Optional.empty();
     }
 
+    /**
+     * sign in a user
+     * @param {@code user} 
+     *
+     */
     @Override
     public void signIn(User user) throws Exception, IllegalArgumentException {
 
@@ -73,10 +113,8 @@ public class MySQL implements DataBase {
 
     }
 
-  
-
     @Override
-    public void addUser(User user) throws Exception{
+    public void addUser(User user) throws Exception {
         PreparedStatement ps;
         ResultSet rs;
 
@@ -84,7 +122,7 @@ public class MySQL implements DataBase {
                 + "(username, email, telefono, contrasenna) "
                 + "VALUES(?, ?, ?, ?);";
 
-        try (var con = getConnection()) {
+        try ( var con = getConnection()) {
 
             ps = con.prepareStatement(query);
 
@@ -95,42 +133,195 @@ public class MySQL implements DataBase {
 
             ps.execute();
 
-        }  catch (SQLException ex) {
-            throw  new Exception("SQLException: "+ ex.getMessage());
+        } catch (SQLException ex) {
+            throw new Exception("SQLException: " + ex.getMessage());
         } finally {
 
         }
-        
+
     }
 
     @Override
-    public boolean userNameExists(String userName) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public boolean userNameExists(String userName) throws Exception {
+        PreparedStatement ps;
+        ResultSet rs;
+
+        var query = "SELECT username FROM usuario WHERE username = ?;";
+
+        try ( var con = getConnection()) {
+            ps = con.prepareStatement(query);
+
+            ps.setString(1, userName);
+
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                return true;
+
+            } else {
+                return false;
+
+            }
+
+        } catch (SQLException ex) {
+            throw new Exception("SQLException: " + ex.getMessage());
+        }
     }
 
     @Override
-    public boolean emailExists(String email) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public boolean emailExists(String email) throws Exception {
+        PreparedStatement ps;
+        ResultSet rs;
+
+        var query = "SELECT email FROM usuario WHERE email = ?;";
+
+        try ( var con = getConnection()) {
+            ps = con.prepareStatement(query);
+
+            ps.setString(1, email);
+
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                return true;
+
+            } else {
+                return false;
+
+            }
+
+        } catch (SQLException ex) {
+            throw new Exception("SQLException: " + ex.getMessage());
+        }
     }
 
     @Override
-    public Optional<Integer> getIdUsuario(String username, String password) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public Optional<Integer> getIdUsuario(String username, String password)
+            throws Exception {
+
+        PreparedStatement ps;
+        ResultSet rs;
+
+        var query = "SELECT id_Usuario FROM usuario"
+                + " WHERE username = ? and contrasenna = ?";
+
+        try ( var con = getConnection()) {
+            ps = con.prepareStatement(query);
+
+            ps.setString(1, username);
+            ps.setString(2, password);
+
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                return Optional.of(rs.getInt("id_Usuario"));
+
+            } else {
+                return Optional.empty();
+
+            }
+
+        } catch (SQLException ex) {
+            throw new Exception("SQLException: " + ex.getMessage());
+        }
     }
 
     @Override
     public boolean userExists(User user) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return userExtendsExists(user, "usuario");
     }
 
     @Override
     public boolean adminExists(Admin admin) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        if (userExtendsExists(admin, "admin")) {
+            PreparedStatement ps;
+            ResultSet rs;
+
+            try ( var con = getConnection()) {
+                var query = "SELECT nombre FROM admin WHERE Nombre = ? and"
+                        + " Apellido = ?"
+                        + " and id_Usuario = ?"
+                        + " and tipo_Usuario = ?";
+
+                ps = con.prepareStatement(query);
+
+                ps.setString(1, admin.getNombre());
+                ps.setString(2, admin.getApellido());
+                ps.setString(3, "" + admin.getId_Usuario());
+                ps.setString(4, "" + admin.getTipo_Usuario());
+
+                rs = ps.executeQuery();
+
+                if (rs.next()) {
+                    return true;
+
+                }
+
+            } catch (SQLException ex) {
+                return false;
+            }
+
+        }
+
+        return false;
+    }
+
+    public boolean userExtendsExists(User user, String tabla) {
+        ResultSet rs;
+        PreparedStatement ps;
+
+        try ( var con = getConnection()) {
+            var query = "SELECT * FROM " + tabla + " WHERE id_Usuario = ?;";
+
+            ps = con.prepareStatement(query);
+
+            ps.setString(1, "" + user.getId_Usuario());
+
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                if (user.getUsername().equals(rs.getString("username"))
+                        && user.getEmail().equals(rs.getString("email"))
+                        && user.getTelefono().equals(rs.getString("telefono"))
+                        && user.getContrasenna()
+                                .equals(rs.getString("contrasenna"))
+                        && user.getTipo_Usuario() == rs.getInt("tipo_Usuario")) {
+                    System.out.println("existe este usuario");
+                    return true;
+
+                } else {
+                    System.out.println("no existe el usuario");
+
+                    return false;
+
+                }
+
+            } else {
+                return false;
+
+            }
+
+        } catch (Exception ex) {
+            Logger.getLogger(MySQL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return false;
     }
 
     @Override
     public boolean clienteExists(Cliente cliente) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        if (userExtendsExists(cliente, "cliente")) {
+            PreparedStatement ps;
+            ResultSet rs;
+
+            try ( var con = getConnection()) {
+
+            } catch (SQLException ex) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     @Override
@@ -140,7 +331,60 @@ public class MySQL implements DataBase {
 
     @Override
     public void becomeAdmin(User current, Admin target) throws Exception, IllegalArgumentException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        if (!userExists(current)) {
+            throw new Exception("The user not exists.");
+
+        }
+        if (target.getId_Usuario() != current.getId_Usuario()) {
+            throw new IllegalArgumentException(
+                    "The id of the current and target do not match.");
+
+        }
+        if (!target.getUsername().equals(current.getUsername())) {
+            throw new IllegalArgumentException(
+                    "The username of the current and target do not match.");
+        }
+        if (!target.getEmail().equals(current.getEmail())) {
+            throw new IllegalArgumentException(
+                    "The email of the current and target do not match.");
+
+        }
+        if (!target.getTelefono().equals(current.getTelefono())) {
+            throw new IllegalArgumentException(
+                    "The phone of the current and target do not match.");
+
+        }
+        if (!target.getContrasenna().equals(current.getContrasenna())) {
+            System.out.println(target.getContrasenna() + " no concide con " + current.getContrasenna());
+
+            throw new IllegalArgumentException(
+                    "The password of the current and target do not match.");
+
+        }
+        if (current.getTipo_Usuario() != 3) {
+            throw new IllegalArgumentException(
+                    "The user type does not have permission to be admin.");
+
+        }
+
+        PreparedStatement ps;
+
+        try ( var con = getConnection()) {
+            var query = "INSERT INTO xforce.admin"
+                    + "(id_Usuario, Nombre, Apellido) "
+                    + "VALUES(?, ?, ?);";
+
+            ps = con.prepareStatement(query);
+
+            ps.setString(1, "" + target.getId_Usuario());
+            ps.setString(2, target.getNombre());
+            ps.setString(3, target.getApellido());
+
+            ps.execute();
+
+        } catch (SQLException ex) {
+            throw new Exception(ex.getMessage());
+        }
     }
 
     @Override
@@ -172,4 +416,5 @@ public class MySQL implements DataBase {
     public void updateUser(int id, User userUpdate) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
 }

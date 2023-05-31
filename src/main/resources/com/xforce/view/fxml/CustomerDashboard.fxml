@@ -128,7 +128,7 @@
                         </HBox>
                      </children>
                   </VBox>
-                  <HBox fx:id="logOut" alignment="CENTER_LEFT" prefHeight="50.0">
+                  <HBox fx:id="logOut" alignment="CENTER_LEFT" onMousePressed="#onMousePressedLogout" prefHeight="50.0">
                      <children>
                         <Label text="Logout" />
                      </children>

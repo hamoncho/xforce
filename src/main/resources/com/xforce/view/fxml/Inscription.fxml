@@ -12,7 +12,7 @@
 
 <AnchorPane id="AnchorPane" prefWidth="1000.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.xforce.controller.InscriptionController">
     <stylesheets>
-        <URL value="@/com/xforce/view/css/inscription.css" />
+        <URL value="@../css/inscription.css" />
     </stylesheets>
    <children>
       <ScrollPane fitToWidth="true" layoutX="134.0" layoutY="87.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">

@@ -4,6 +4,7 @@
  */
 package com.xforce.controller;
 
+import com.xforce.db.MySQL;
 import com.xforce.view.ViewManager;
 import com.xforce.view.Views;
 import java.net.URL;
@@ -32,11 +33,26 @@ public class LoginController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
 
     @FXML
     private void OnActionLogin(ActionEvent event) {
-        ViewManager.go(Views.CUSTOMER_DASHBOARD);
+        MySQL database = new MySQL();
+        final var userName = textFieldUser.getText();
+        final var userPassword = passwordField.getText();
+
+        try {
+            final var idUser = database.getIdUsuario(userName, userPassword);
+        
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        if (userName.equals("user")) {
+            ViewManager.go(Views.INSCRIPTION);
+        } else {
+            ViewManager.go(Views.CUSTOMER_DASHBOARD);
+        }
     }
 
     @FXML
@@ -48,5 +64,5 @@ public class LoginController implements Initializable {
     private void onActionSingIn(ActionEvent event) {
         ViewManager.go(Views.SING_IN);
     }
-    
+
 }

@@ -13,7 +13,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import static javafx.scene.input.MouseButton.PRIMARY;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
@@ -46,7 +45,6 @@ public class AreasController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
     }
 
     @FXML
@@ -57,13 +55,18 @@ public class AreasController implements Initializable {
                     CustomerDashboardController.getSIGLETON()
                             .getBorderPane()
                             .setCenter(ViewManager
-                                    .loadFXML(Views.CARDIOVASCULAR_AREA.getUrl())
-                            );
+                                    .loadFXML(Views.CARDIOVASCULAR_AREA.getUrl()));
                 } catch (IOException ex) {
                     Logger.getLogger(AreasController.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
             }
+            case BACK -> throw new UnsupportedOperationException("Unimplemented case: " + event.getButton());
+            case FORWARD -> throw new UnsupportedOperationException("Unimplemented case: " + event.getButton());
+            case MIDDLE -> throw new UnsupportedOperationException("Unimplemented case: " + event.getButton());
+            case NONE -> throw new UnsupportedOperationException("Unimplemented case: " + event.getButton());
+            case SECONDARY -> throw new UnsupportedOperationException("Unimplemented case: " + event.getButton());
+            default -> throw new IllegalArgumentException("Unexpected value: " + event.getButton());
         }
 
     }
@@ -76,13 +79,18 @@ public class AreasController implements Initializable {
                     CustomerDashboardController.getSIGLETON()
                             .getBorderPane()
                             .setCenter(ViewManager
-                                    .loadFXML(Views.FUNCTIONAL_FITNESS_AAREA.getUrl())
-                            );
+                                    .loadFXML(Views.FUNCTIONAL_FITNESS_AAREA.getUrl()));
                 } catch (IOException ex) {
                     Logger.getLogger(AreasController.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
             }
+            case BACK -> throw new UnsupportedOperationException("Unimplemented case: " + event.getButton());
+            case FORWARD -> throw new UnsupportedOperationException("Unimplemented case: " + event.getButton());
+            case MIDDLE -> throw new UnsupportedOperationException("Unimplemented case: " + event.getButton());
+            case NONE -> throw new UnsupportedOperationException("Unimplemented case: " + event.getButton());
+            case SECONDARY -> throw new UnsupportedOperationException("Unimplemented case: " + event.getButton());
+            default -> throw new IllegalArgumentException("Unexpected value: " + event.getButton());
         }
 
     }
@@ -95,13 +103,18 @@ public class AreasController implements Initializable {
                     CustomerDashboardController.getSIGLETON()
                             .getBorderPane()
                             .setCenter(ViewManager
-                                    .loadFXML(Views.FREE_WEIGHTS_AREA.getUrl())
-                            );
+                                    .loadFXML(Views.FREE_WEIGHTS_AREA.getUrl()));
                 } catch (IOException ex) {
                     Logger.getLogger(AreasController.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
             }
+            case BACK -> throw new UnsupportedOperationException("Unimplemented case: " + event.getButton());
+            case FORWARD -> throw new UnsupportedOperationException("Unimplemented case: " + event.getButton());
+            case MIDDLE -> throw new UnsupportedOperationException("Unimplemented case: " + event.getButton());
+            case NONE -> throw new UnsupportedOperationException("Unimplemented case: " + event.getButton());
+            case SECONDARY -> throw new UnsupportedOperationException("Unimplemented case: " + event.getButton());
+            default -> throw new IllegalArgumentException("Unexpected value: " + event.getButton());
         }
 
     }
@@ -115,14 +128,18 @@ public class AreasController implements Initializable {
                             .getBorderPane()
                             .setCenter(ViewManager
                                     .loadFXML(Views.STRETCHING_AND_MOBILITY_AREA
-                                            .getUrl()
-                                    )
-                            );
+                                            .getUrl()));
                 } catch (IOException ex) {
                     Logger.getLogger(AreasController.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
             }
+            case BACK -> throw new UnsupportedOperationException("Unimplemented case: " + event.getButton());
+            case FORWARD -> throw new UnsupportedOperationException("Unimplemented case: " + event.getButton());
+            case MIDDLE -> throw new UnsupportedOperationException("Unimplemented case: " + event.getButton());
+            case NONE -> throw new UnsupportedOperationException("Unimplemented case: " + event.getButton());
+            case SECONDARY -> throw new UnsupportedOperationException("Unimplemented case: " + event.getButton());
+            default -> throw new IllegalArgumentException("Unexpected value: " + event.getButton());
         }
 
     }
@@ -136,14 +153,18 @@ public class AreasController implements Initializable {
                             .getBorderPane()
                             .setCenter(ViewManager
                                     .loadFXML(Views.PERSONAL_TRAINING_CORNERS_AREA
-                                            .getUrl()
-                                    )
-                            );
+                                            .getUrl()));
                 } catch (IOException ex) {
                     Logger.getLogger(AreasController.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
             }
+            case BACK -> throw new UnsupportedOperationException("Unimplemented case: " + event.getButton());
+            case FORWARD -> throw new UnsupportedOperationException("Unimplemented case: " + event.getButton());
+            case MIDDLE -> throw new UnsupportedOperationException("Unimplemented case: " + event.getButton());
+            case NONE -> throw new UnsupportedOperationException("Unimplemented case: " + event.getButton());
+            case SECONDARY -> throw new UnsupportedOperationException("Unimplemented case: " + event.getButton());
+            default -> throw new IllegalArgumentException("Unexpected value: " + event.getButton());
         }
 
     }
