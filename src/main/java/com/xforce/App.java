@@ -15,7 +15,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        ViewManager.go(Views.LOGIN);
+        ViewManager.go(Views.PANEL_ADMIN);
     }
 
     public static void main(String[] args) {

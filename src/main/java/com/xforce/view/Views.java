@@ -17,6 +17,7 @@ public enum Views {
     FUNCTIONAL_FITNESS_AAREA("/com/xforce/view/fxml/FunctionalFitnessArea.fxml"),
     PERSONAL_TRAINING_CORNERS_AREA("/com/xforce/view/fxml/PersonalTrainingCornersArea.fxml"),
     STRETCHING_AND_MOBILITY_AREA("/com/xforce/view/fxml/StretchingAndMobilityArea.fxml"),
+    PANEL_ADMIN("/com/xforce/view/fxml/AdminPanel.fxml"),
     AREAS("/com/xforce/view/fxml/Areas.fxml");
 
     private final String url;
