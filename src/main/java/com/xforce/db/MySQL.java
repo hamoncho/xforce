@@ -396,11 +396,12 @@ public class MySQL implements DataBase {
                     "The password of the current and target do not match.");
 
         }
-        if (current.getTipo_Usuario() != 3) {
-            throw new IllegalArgumentException(
-                    "The user type does not have permission to be admin.");
+//        if (current.getTipo_Usuario() != 3) {
+//            throw new IllegalArgumentException(
+//                    "The user type does not have permission to be admin.");
+//
+//        }
 
-        }
 
         PreparedStatement ps;
 
@@ -417,6 +418,9 @@ public class MySQL implements DataBase {
 
             ps.execute();
 
+            ps.execute("UPDATE usuario SET tipo_Usuario = 0 WHERE id_Usuario = " + current.getId_Usuario() + ";");
+            ps.execute("DELETE FROM `cliente` WHERE id_Usuario = " + current.getId_Usuario());
+            
         } catch (SQLException ex) {
             throw new Exception(ex.getMessage());
         }
@@ -424,24 +428,28 @@ public class MySQL implements DataBase {
 
     @Override
     public void becomeCliente(User current, Cliente target) throws Exception, IllegalArgumentException {
-       String sql = "INSERT INTO cliente (id_Usuario, Nombre, Apellido, Num_Tarjeta, Fecha_Tarjeta, Fecha_Nacimiento, Tipo_Sanguineo) VALUES (?, ?, ?, ?, ?, ?, ?);UPDATE usuario SET tipo_Usuario = 1 WHERE tipo_Usuario = ?;";
-            
-            PreparedStatement pstmt = getConnection().prepareStatement(sql);
-            pstmt.setInt(1, current.getId_Usuario());
-            pstmt.setString(2, target.getNombre());
-            pstmt.setString(3, target.getApellido());
-            pstmt.setString(4, target.getNum_targeta());
-            pstmt.setString(5, target.getFecha_targeta().toString());
-            pstmt.setString(6, target.getFecha_nacimiento().toString());
-            pstmt.setString(7, target.getTipo_sanguineo());
-            pstmt.setInt(8, current.getId_Usuario());
-            
-            int filasAfectadas = pstmt.executeUpdate();
-            if (filasAfectadas > 0) {
-                System.out.println("Se insertó el nuevo cliente correctamente.");
-            } else {
-                System.out.println("No se pudo insertar el nuevo cliente.");
-            }
+        String sql = "INSERT INTO cliente (id_Usuario, Nombre, Apellido, Num_Tarjeta, Fecha_Tarjeta, Fecha_Nacimiento, Tipo_Sanguineo) VALUES (?, ?, ?, ?, ?, ?, ?);";
+
+        PreparedStatement pstmt = getConnection().prepareStatement(sql);
+        pstmt.setInt(1, current.getId_Usuario());
+        pstmt.setString(2, target.getNombre());
+        pstmt.setString(3, target.getApellido());
+        pstmt.setString(4, target.getNum_targeta());
+        pstmt.setString(5, target.getFecha_targeta().toString());
+        pstmt.setString(6, target.getFecha_nacimiento().toString());
+        pstmt.setString(7, target.getTipo_sanguineo());
+        // pstmt.setInt(8, current.getId_Usuario());
+
+        int filasAfectadas = pstmt.executeUpdate();
+        if (filasAfectadas > 0) {
+            System.out.println("Se insertó el nuevo cliente correctamente.");
+        } else {
+            System.out.println("No se pudo insertar el nuevo cliente.");
+        }
+        pstmt.execute("UPDATE usuario SET tipo_Usuario = 1 WHERE id_Usuario = " + current.getId_Usuario() + ";");
+
+        pstmt.execute("DELETE FROM `admin` WHERE id_Usuario = " + current.getId_Usuario());
+
     }
 
     @Override
@@ -473,6 +481,9 @@ public class MySQL implements DataBase {
             } else {
                 System.out.println("No se encontró ninguna fila para eliminar.");
             }
+
+            pstmt.execute("DELETE FROM `admin` WHERE id_Usuario = " + id);
+            pstmt.execute("DELETE FROM `cliente` WHERE id_Usuario = " + id);
         } catch (SQLException ex) {
             Logger.getLogger(MySQL.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -480,7 +491,9 @@ public class MySQL implements DataBase {
 
     @Override
     public void updateUser(int id, User userUpdate) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        // UPDATE usuario SET tipo_Usuario = 1 WHERE id_Usuario = ?;
+
     }
+
 //
 }

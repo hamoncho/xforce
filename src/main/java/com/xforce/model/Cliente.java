@@ -127,4 +127,11 @@ public class Cliente extends User {
         this.tipo_sanguineo = tipo_sanguineo;
     }
 
+    @Override
+    public String toString() {
+        return "Cliente{" + "nombre=" + nombre + ", apellido=" + apellido + ", num_targeta=" + num_targeta + ", fecha_targeta=" + fecha_targeta + ", fecha_nacimiento=" + fecha_nacimiento + ", tipo_sanguineo=" + tipo_sanguineo + '}';
+    }
+
+
+    
 }
