@@ -45,7 +45,6 @@ public class MySQLtest {
     @Test
     public void getIdUsuarioTest() throws Exception {
         MySQL mysql = new MySQL();
-
         assertEquals(Optional.of(2),
                 mysql.getIdUsuario("axel",
                         "FVp2qH6S@"));

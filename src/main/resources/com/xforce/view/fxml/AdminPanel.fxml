@@ -21,7 +21,7 @@
       </ScrollPane>
       <Button layoutX="15.0" layoutY="556.0" mnemonicParsing="false" onAction="#OnActionEliminar" text="Eliminar" AnchorPane.bottomAnchor="119.0" AnchorPane.leftAnchor="15.0" />
       <Button layoutX="799.0" layoutY="361.0" mnemonicParsing="false" onAction="#OnActionAdmin" text="Admin" AnchorPane.rightAnchor="78.0" AnchorPane.topAnchor="361.0" />
-      <Button layoutX="794.0" layoutY="361.0" mnemonicParsing="false" onAction="#OnActionCliente" text="Cliente" AnchorPane.rightAnchor="153.0" AnchorPane.topAnchor="361.0" />
+      <Button layoutX="764.0" layoutY="361.0" mnemonicParsing="false" onAction="#OnActionCliente" text="Cliente" AnchorPane.rightAnchor="183.0" AnchorPane.topAnchor="361.0" />
       <TextField fx:id="textFieldApellidos" layoutX="652.0" layoutY="179.0" prefHeight="25.0" prefWidth="270.0" promptText="Apellidos" AnchorPane.rightAnchor="78.0" AnchorPane.topAnchor="179.0" />
       <TextField fx:id="textFieldNumTarjeta" layoutX="652.0" layoutY="221.0" prefHeight="25.0" prefWidth="270.0" promptText="Num_Tarjeta" AnchorPane.rightAnchor="78.0" AnchorPane.topAnchor="221.0" />
       <TextField fx:id="textFieldNacimiento" layoutX="652.0" layoutY="267.0" prefHeight="25.0" prefWidth="270.0" promptText="Fecha_Nacimiento" AnchorPane.rightAnchor="78.0" AnchorPane.topAnchor="135.0" />
@@ -30,5 +30,6 @@
       <Label fx:id="labelSelected" layoutX="655.0" layoutY="95.0" prefHeight="25.0" prefWidth="270.0" AnchorPane.leftAnchor="655.0" AnchorPane.rightAnchor="75.0" AnchorPane.topAnchor="95.0" />
       <DatePicker fx:id="dataPickerNacimineto" layoutX="652.0" layoutY="95.0" promptText="nacimiento" AnchorPane.rightAnchor="174.0" AnchorPane.topAnchor="95.0" />
       <DatePicker fx:id="datePickerTarjeta" layoutX="652.0" layoutY="256.0" promptText="tarjeta" AnchorPane.rightAnchor="174.0" AnchorPane.topAnchor="256.0" />
+      <Button layoutX="652.0" layoutY="361.0" mnemonicParsing="false" onAction="#onActionUsuario" text="Usuario" AnchorPane.rightAnchor="291.0" AnchorPane.topAnchor="361.0" />
    </children>
 </AnchorPane>

@@ -21,6 +21,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -51,6 +52,10 @@ public class AdminPanelController implements Initializable {
     private Label labelSelected;
 
     private User userSelected;
+    @FXML
+    private DatePicker dataPickerNacimineto;
+    @FXML
+    private DatePicker datePickerTarjeta;
 
     /**
      * Initializes the controller class.
@@ -185,5 +190,25 @@ public class AdminPanelController implements Initializable {
         });
 
         return userItem;
+    }
+
+    @FXML
+    private void onActionUsuario(ActionEvent event) {
+        MySQL mysql = new MySQL();
+        try {
+            if (userSelected.getTipo_Usuario() == 3) {
+                throw new IllegalArgumentException("Ya es un Usuario");
+            }
+            mysql.becomeUsuario(userSelected);
+            go(PANEL_ADMIN);
+        }catch (IllegalArgumentException ex) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText(null);
+            alert.setTitle("Info");
+            alert.setContentText("Ya Eres Usuario");
+            alert.showAndWait();
+        } catch (Exception ex) {
+            Logger.getLogger(AdminPanelController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

@@ -402,7 +402,6 @@ public class MySQL implements DataBase {
 //
 //        }
 
-
         PreparedStatement ps;
 
         try (var con = getConnection()) {
@@ -420,7 +419,7 @@ public class MySQL implements DataBase {
 
             ps.execute("UPDATE usuario SET tipo_Usuario = 0 WHERE id_Usuario = " + current.getId_Usuario() + ";");
             ps.execute("DELETE FROM `cliente` WHERE id_Usuario = " + current.getId_Usuario());
-            
+
         } catch (SQLException ex) {
             throw new Exception(ex.getMessage());
         }
@@ -446,9 +445,6 @@ public class MySQL implements DataBase {
         } else {
             System.out.println("No se pudo insertar el nuevo cliente.");
         }
-        pstmt.execute("UPDATE usuario SET tipo_Usuario = 1 WHERE id_Usuario = " + current.getId_Usuario() + ";");
-
-        pstmt.execute("DELETE FROM `admin` WHERE id_Usuario = " + current.getId_Usuario());
 
     }
 
@@ -459,7 +455,14 @@ public class MySQL implements DataBase {
 
     @Override
     public void becomeUsuario(User user) throws Exception, IllegalArgumentException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String sql = "DELETE FROM `admin` WHERE id_Usuario = ?";
+        PreparedStatement pstmt = getConnection().prepareStatement(sql);
+        pstmt.setInt(1, user.getId_Usuario());
+        int filasAfectadas = pstmt.executeUpdate();
+
+        pstmt.execute("UPDATE usuario SET tipo_Usuario = 1 WHERE id_Usuario = " + user.getId_Usuario() + ";");
+
+        pstmt.execute("DELETE FROM `admin` WHERE id_Usuario = " + user.getId_Usuario());
     }
 
     @Override
