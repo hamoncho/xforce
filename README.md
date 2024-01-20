@@ -1,6 +1,7 @@
 # XForce
 
-Es el proyecto final para el la materia de base de datos, se simula un GYM, donde hay usuarios, administradores y entrenadores, que pueden usar la app. esta echo en java y javafx para la interfas grafica.
+Es el proyecto final para la materia de base de datos, se simula un GYM, donde hay usuarios, administradores y entrenadores, que pueden usar la app. esta echo en java y javafx para la interfas grafica.
+Por motivos de tiempo el proyecto no se termino esta inconcluso. XD
 
 ## Capturas de Pantalla
 
